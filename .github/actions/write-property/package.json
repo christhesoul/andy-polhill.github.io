@@ -1,0 +1,10 @@
+{
+  "name": "virtual-town-write-property",
+  "private": true,
+  "description": "A github action to write a value to a config file",
+  "dependencies": {
+    "@actions/core": "^1.2.6",
+    "@actions/github": "^4.0.0",
+    "simple-git": "^2.31.0"
+  }
+}
