@@ -1,3 +1,5 @@
 {
-  "version": "1.0"
+  "version": "1.0",
+  "sunrise": "8am",
+  "sunset": "8am"
 }

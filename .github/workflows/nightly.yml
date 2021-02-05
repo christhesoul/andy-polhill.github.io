@@ -4,7 +4,7 @@ on:
   schedule:
     - cron: '0 0 * * *'
   push:
-    branches: [ main, gatsby-gh-pages ]
+    branches: [ main ]
 
 
 jobs:
@@ -43,7 +43,6 @@ jobs:
         with:
           key: 'sunrise'
           value: ${{ steps.daylight.outputs.sunrise }}
-          token: ${{ secrets.VIRTUAL_TOWN_MAYORAL_TOKEN }}
 
       - name: write sunset 
         id: write-sunset
@@ -51,7 +50,6 @@ jobs:
         with:
           key: 'sunset'
           value: ${{ steps.daylight.outputs.sunset }}
-          token: ${{ secrets.VIRTUAL_TOWN_MAYORAL_TOKEN }}
 
       - name: build
         run: npm run build
