@@ -9,9 +9,13 @@ inputs:
     required: true
 outputs:
   sunrise:
-    description: 'The time the sunrises'
+    description: 'Sun set displayed in ISO8601 format.'
   sunset:
-    description: 'The time the sunsets'
+    description: 'Sun rise displayed in ISO8601 format.'
+  icon:
+    description: 'Numeric value representing an icon that matches the forecast.'
+  icon_phrase:
+    description: 'Phrase description of the icon.'
 runs:
   using: 'node12'
   main: 'index.js'

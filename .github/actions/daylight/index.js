@@ -14,7 +14,8 @@ try {
   .then(response => {
     core.setOutput("sunrise", response.data.DailyForecasts[0].Sun.Rise);
     core.setOutput("sunset", response.data.DailyForecasts[0].Sun.Set);
-  
+    core.setOutput("icon", response.data.DailyForecasts[0].Day.Icon);
+    core.setOutput("icon_phrase", response.data.DailyForecasts[0].Day.IconPhrase);
   })
   .catch((error) => core.setFailed(error))
 } catch (error) {
