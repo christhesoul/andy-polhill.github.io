@@ -1,5 +1,6 @@
 {
-  "version": "1.0",
   "sunrise": "8am",
-  "sunset": "8am"
+  "sunset": "8am",
+  "icon": "2",
+  "icon_phrase": "Default"
 }

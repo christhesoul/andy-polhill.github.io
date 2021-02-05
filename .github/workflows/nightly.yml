@@ -51,6 +51,20 @@ jobs:
           key: 'sunset'
           value: ${{ steps.daylight.outputs.sunset }}
 
+      - name: write icon 
+        id: write-icon
+        uses: ./.github/actions/write-property
+        with:
+          key: 'icon'
+          value: ${{ steps.daylight.outputs.icon }}
+
+      - name: write icon_phrase 
+        id: write-icon-phrase
+        uses: ./.github/actions/write-property
+        with:
+          key: 'icon_phrase'
+          value: ${{ steps.daylight.outputs.icon_phrase }}
+
       - name: build
         run: npm run build
 

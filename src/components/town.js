@@ -13,6 +13,8 @@ export default function Town() {
         <g>
           <text y="15">sunrise: {state.sunrise} </text>
           <text y="35">sunset: {state.sunset} </text>
+          <text y="55">icon: {state.icon} </text>
+          <text y="75">icon_phrase: {state.icon_phrase} </text>
         </g>
     </svg>
   )
