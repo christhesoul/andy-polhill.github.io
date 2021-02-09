@@ -1,0 +1,13 @@
+
+.town {
+  background-image: url(../../static/day-gradient.svg);
+ }
+
+ .town__sunset,
+ .town__sunrise {
+  background-image: url(../../static/night-gradient.svg);
+ }
+
+ .town__night {
+  background-image: url(../../static/evening-gradient.svg);
+ }
