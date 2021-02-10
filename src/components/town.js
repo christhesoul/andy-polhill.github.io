@@ -19,6 +19,10 @@ export default function Town() {
   const after_sunrise = ms_since_midnight > new Date(sunrise) - sunrise.setHours(0,0,0,0);
   const before_sunset = ms_since_midnight < new Date(sunset) - sunset.setHours(0,0,0,0);
 
+  console.log('ms_since_midnight', ms_since_midnight);
+  console.log('after_sunrise', after_sunrise);
+  console.log('before_sunset', before_sunset);
+
   if(after_sunrise && before_sunset) {
       day = true;
   }
