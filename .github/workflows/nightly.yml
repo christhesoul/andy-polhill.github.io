@@ -66,7 +66,7 @@ jobs:
           value: ${{ steps.daylight.outputs.icon_phrase }}
 
       - name: build
-        run: npm run build
+        run: npm run build -- --prefix-paths
 
       - name: deploy
         uses: peaceiris/actions-gh-pages@v3
