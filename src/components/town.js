@@ -14,17 +14,18 @@ export default function Town() {
   const sunset = new Date(Date.parse(state.sunset));
   const ms_since_midnight = new Date(now) - now.setHours(0,0,0,0);
 
-  let night = false;
-  if(
-      ms_since_midnight > new Date(sunrise) - sunrise.setHours(0,0,0,0) ||
-      ms_since_midnight < new Date(sunset) - sunset.setHours(0,0,0,0)
-    ) {
-      night = true;
+  let day = false;
+
+  const after_sunrise = ms_since_midnight > new Date(sunrise) - sunrise.setHours(0,0,0,0);
+  const before_sunset = ms_since_midnight < new Date(sunset) - sunset.setHours(0,0,0,0);
+
+  if(after_sunrise && before_sunset) {
+      day = true;
   }
 
   const classes = classNames({
     [styles.town]: true,
-    [styles.town__night]: night,
+    [styles.town__night]: !day,
   });
 
   return (
