@@ -3,6 +3,7 @@ import {
   GlobalStateContext,
 } from "../context/GlobalContextProvider"
 import classNames from 'classnames';
+import Clouds from './cloud/clouds';
 
 import styles from "./town.module.css"
 
@@ -46,11 +47,15 @@ export default function Town() {
     [styles.town__sunset]: timeOfDay === 'sunset',
   });
 
+  const width = "100%";
+  const height = 300;
+
   return (
     <div className={classes}>
       <svg version="1.1"
-          width="100%" height="300"
-          xmlns="http://www.w3.org/2000/svg">
+          width={ width }
+          height={ height }>
+        <Clouds width={ width } height={ height }></Clouds>
       </svg>
     </div>
   )

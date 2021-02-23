@@ -1,0 +1,7 @@
+.cloud {
+  /* fill: white; */
+}
+
+.circle {
+  filter: url(#drop-shadow);
+}
