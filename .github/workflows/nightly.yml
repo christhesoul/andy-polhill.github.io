@@ -65,6 +65,13 @@ jobs:
           key: 'icon_phrase'
           value: ${{ steps.daylight.outputs.icon_phrase }}
 
+      - name: write cloud_cover
+        id: write-cloud-cover
+        uses: ./.github/actions/write-property
+        with:
+          key: 'cloud_cover'
+          value: ${{ steps.daylight.outputs.cloud_cover }}
+
       - name: build
         run: npm run build -- --prefix-paths
 

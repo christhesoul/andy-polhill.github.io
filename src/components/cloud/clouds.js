@@ -1,8 +1,9 @@
-import React, { Fragment } from "react";
-import { scaleLinear } from 'd3-scale';
-import PropTypes from 'prop-types';
+import React, { Fragment, useContext } from "react";
+import { scaleLinear } from "d3-scale";
+import PropTypes from "prop-types";
+import { GlobalStateContext } from "../../context/GlobalContextProvider"
 
-import Cloud from './cloud';
+import Cloud from "./cloud";
 
 /*
 TODO
@@ -14,16 +15,15 @@ Sort out sinset
 Use colour not alpha for clouds
 */
 
-function generate_clouds({ width, height }) {
+function generate_clouds(width, height, cloud_cover) {
 
-  const min_clouds = 5;
-  const max_clouds = 10;
+  const min_clouds = 2;
+  const max_clouds = 30;
   const cloud_count_scale = scaleLinear()
+    .domain([0, 100])
     .rangeRound([min_clouds, max_clouds]);
 
-  const clouds = cloud_count_scale(Math.random());
-
-  console.log(clouds);
+  const clouds = cloud_count_scale(cloud_cover);
 
   const x_pos_scale = scaleLinear()
     .range([0, width]);
@@ -35,20 +35,16 @@ function generate_clouds({ width, height }) {
     .domain([1, clouds])
     .range(["#fff", "#89d9d9"]);
 
-  const data = [...new Array(clouds)].map((a, i) => {
-    return {
-      x: x_pos_scale(Math.random()),
-      y: y_pos_scale(Math.random()),
-      fill: fill_scale(clouds / 1.5  - i),
-    }
-  });
-
-  console.log(data);
-
-  return data;
+  return [...new Array(clouds)].map((a, i) => ({
+    x: x_pos_scale(Math.random()),
+    y: y_pos_scale(Math.random()),
+    fill: fill_scale(clouds / 1.5  - i)
+  }));
 }
 
 export default function Clouds({ width, height }) {
+
+  const state = useContext(GlobalStateContext);
 
   return (
     <Fragment>
@@ -65,7 +61,7 @@ export default function Clouds({ width, height }) {
         </feMerge>
     </filter>
         {
-          generate_clouds({ width, height }).map(({ fill, x, y, opacity }, i) =>
+          generate_clouds(width, height, state.cloud_cover).map(({ fill, x, y }, i) =>
             <Cloud fill={ fill } x={ x } y={ y } key={ i } index={ i }></Cloud>)
         }
     </Fragment>

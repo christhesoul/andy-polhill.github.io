@@ -5,7 +5,7 @@ import PropTypes from 'prop-types';
 import styles from "./cloud.module.css"
 
 
-function generate_cloud(index) {
+function generate_cloud() {
 
   const min_width = 80;
   const max_width = 200;
@@ -31,11 +31,9 @@ function generate_cloud(index) {
     .rangeRound([2, max_rows]);
 
   const rows = row_scale(Math.random());
-  console.log('rows:', rows)
 
   let row = 0;
   while(row < rows) {
-    console.log('row: ', row);
     let current_x = 0 + (row * circle_rad_scale(Math.random()));
     const row_width = width - (row * circle_rad_scale(Math.random()));
 
@@ -56,12 +54,12 @@ function generate_cloud(index) {
 }
 
 
-export default function Cloud({ x, y, fill, index }) {
+export default function Cloud({ x, y, fill }) {
 
   return (
     <svg x={ x } y={ y } className={ styles.cloud } fill={ fill }  overflow="visible">
       {
-        generate_cloud(index).map(({ r, x, y }, i) =>
+        generate_cloud().map(({ r, x, y }, i) =>
         //TODO spread this
           <circle className={ styles.circle } key={ i } cx={ x } cy={ y } r={ r } />
         )

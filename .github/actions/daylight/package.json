@@ -1,7 +1,7 @@
 {
-  "name": "virtual-town-daylight-hours",
+  "name": "virtual-town-weather",
   "private": true,
-  "description": "A github action to fetch daylight hours for a specific location",
+  "description": "A github action to fetch weather data for a specific location",
   "dependencies": {
     "@actions/core": "^1.2.6",
     "@actions/github": "^4.0.0",

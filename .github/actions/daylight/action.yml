@@ -1,5 +1,5 @@
-name: 'Daylight Hours'
-description: 'Retrieve the current daylight hours'
+name: 'Weather'
+description: 'Retrieve the current weather data'
 inputs:
   location:
     description: "Id of the location"
@@ -16,6 +16,8 @@ outputs:
     description: 'Numeric value representing an icon that matches the forecast.'
   icon_phrase:
     description: 'Phrase description of the icon.'
+  cloud_cover:
+    description: 'Percent representing cloud cover.'
 runs:
   using: 'node12'
   main: 'index.js'
