@@ -6,7 +6,7 @@
   height: 300px;
 }
 
-.town__sunrise:before,
+/* .town__sunrise:before,
 .town__sunset:before {
   content: "";
   background-image: url(../../static/backgrounds.png);
@@ -16,9 +16,9 @@
   left: 0;
   right: 0;
   bottom: 0;
-}
+} */
 
 
-.town__night {
+/* .town__night {
   background-position: 0px 300px;
-}
+} */
