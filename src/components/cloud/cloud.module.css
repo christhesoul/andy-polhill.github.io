@@ -1,6 +1,6 @@
 .cloud {
-  /* fill: white; */
-}
+  transition: all 700ms ease-in-out;
+ }
 
 .circle {
   filter: url(#drop-shadow);
