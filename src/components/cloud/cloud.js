@@ -5,9 +5,9 @@ import PropTypes from 'prop-types';
 import styles from "./cloud.module.css"
 
 
-function generate_cloud() {
+function generate_cloud(layer) {
 
-  const min_width = 80;
+  const min_width = 20;
   const max_width = 200;
 
   const min_circle_rad = 10;
@@ -24,11 +24,13 @@ function generate_cloud() {
   const gravity_scale = scaleLinear()
     .rangeRound([0, -20]);
 
-  const width = width_scale(Math.random());
-  const max_rows = 3;
+  const width = width_scale((Math.random() / 2) + (layer / 10));
+
+  const min_rows = 2
+  const max_rows = 4;
 
   const row_scale = scaleLinear()
-    .rangeRound([2, max_rows]);
+    .rangeRound([min_rows, max_rows]);
 
   const rows = row_scale(Math.random());
 
@@ -39,13 +41,13 @@ function generate_cloud() {
 
     while(current_x < row_width) {
       const r_seed = Math.random();
-      const r = circle_rad_scale(r_seed);
+      const r = circle_rad_scale(r_seed + (layer / 20));
 
       current_x = current_x + r;
       circles.push({
         r,
-        x: current_x,
-        y: gravity_scale((r_seed + Math.random()) / 2) - (row * 20),
+        cx: current_x,
+        cy: gravity_scale((r_seed + Math.random()) / 2) - (row * 20),
       })
     }
     row++;
@@ -54,14 +56,13 @@ function generate_cloud() {
 }
 
 
-export default function Cloud({ x, y, fill }) {
+export default function Cloud({ layer, x, y, fill }) {
 
   return (
-    <svg x={ x } y={ y } className={ styles.cloud } fill={ fill }  overflow="visible">
+    <svg data-layer={ layer } x={ x } y={ y } className={ styles.cloud } fill={ fill }  overflow="visible">
       {
-        generate_cloud().map(({ r, x, y }, i) =>
-        //TODO spread this
-          <circle className={ styles.circle } key={ i } cx={ x } cy={ y } r={ r } />
+        generate_cloud(layer).map((props, i) =>
+           <circle className={ styles.circle } key={ i } { ...props } />
         )
       }
     </svg>
@@ -71,7 +72,7 @@ export default function Cloud({ x, y, fill }) {
 Cloud.propTypes = {
   x: PropTypes.string,
   y: PropTypes.number,
-  index: PropTypes.number,
+  layer: PropTypes.number,
   opacity: PropTypes.number,
   fill: PropTypes.string,
 }

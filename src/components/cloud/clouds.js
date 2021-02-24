@@ -26,7 +26,7 @@ function generate_clouds(width, height, cloud_cover) {
   const clouds = cloud_count_scale(cloud_cover);
 
   const x_pos_scale = scaleLinear()
-    .range([0, width]);
+    .range([-100, width]);
 
   const y_pos_scale = scaleLinear()
     .rangeRound([height / 4, height / 2]);
@@ -35,10 +35,11 @@ function generate_clouds(width, height, cloud_cover) {
     .domain([1, clouds])
     .range(["#fff", "#89d9d9"]);
 
-  return [...new Array(clouds)].map((a, i) => ({
+  return [...new Array(clouds)].map((a, layer) => ({
     x: x_pos_scale(Math.random()),
-    y: y_pos_scale(Math.random()),
-    fill: fill_scale(clouds / 1.5  - i)
+    y: y_pos_scale((Math.random() / 2) + ((clouds - layer) / 10)),
+    fill: fill_scale(clouds / 1.5  - layer),
+    layer,
   }));
 }
 
@@ -61,8 +62,8 @@ export default function Clouds({ width, height }) {
         </feMerge>
     </filter>
         {
-          generate_clouds(width, height, state.cloud_cover).map(({ fill, x, y }, i) =>
-            <Cloud fill={ fill } x={ x } y={ y } key={ i } index={ i }></Cloud>)
+          generate_clouds(width, height, state.cloud_cover).map((props, i) =>
+            <Cloud { ...props } key={ i }></Cloud>)
         }
     </Fragment>
   )
