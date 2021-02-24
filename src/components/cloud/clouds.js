@@ -1,29 +1,18 @@
-import React, { Fragment, useContext } from "react";
+import React, { Fragment, useContext, useState, useEffect } from "react";
 import { scaleLinear } from "d3-scale";
 import PropTypes from "prop-types";
 import { GlobalStateContext } from "../../context/GlobalContextProvider"
 
 import Cloud from "./cloud";
 
-/*
-TODO
-Get it into percentage
-Some collision detection
-Styling
-Do it in an acton
-Sort out sinset
-Use colour not alpha for clouds
-*/
+const min_clouds = 2;
+const max_clouds = 30;
 
-function generate_clouds(width, height, cloud_cover) {
+function generate_clouds(width, height, state) {
 
-  const min_clouds = 2;
-  const max_clouds = 30;
-  const cloud_count_scale = scaleLinear()
+  const clouds = scaleLinear()
     .domain([0, 100])
-    .rangeRound([min_clouds, max_clouds]);
-
-  const clouds = cloud_count_scale(cloud_cover);
+    .rangeRound([min_clouds, max_clouds])(state.cloud_cover);
 
   const x_pos_scale = scaleLinear()
     .range([-100, width]);
@@ -33,7 +22,10 @@ function generate_clouds(width, height, cloud_cover) {
 
   const fill_scale = scaleLinear()
     .domain([1, clouds])
-    .range(["#fff", "#89d9d9"]);
+    .range([
+      state.colors.cloud_day_foreground,
+      state.colors.cloud_day_background
+    ]);
 
   return [...new Array(clouds)].map((a, layer) => ({
     x: x_pos_scale(Math.random()),
@@ -47,22 +39,27 @@ export default function Clouds({ width, height }) {
 
   const state = useContext(GlobalStateContext);
 
+  const [clouds, setClouds] = useState([], width, height, state);
+
+  useEffect(() =>
+    setClouds(generate_clouds(width, height, state)),
+    [width, height, state]
+  );
+
   return (
     <Fragment>
-
-    <filter id="drop-shadow">
-      {/* <feGaussianBlur in="SourceAlpha" stdDeviation="3"/>  */}
-      <feOffset dx="4" dy="4" result="offsetblur"/>
-      <feComponentTransfer>
-        <feFuncA type="linear" slope="0.7"/>
-      </feComponentTransfer>
+      <filter id="drop-shadow">
+        <feOffset dx="4" dy="4" result="offsetblur"/>
+        <feComponentTransfer>
+          <feFuncA type="linear" slope="0.7"/>
+        </feComponentTransfer>
         <feMerge> 
           <feMergeNode/>
           <feMergeNode in="SourceGraphic"/>
         </feMerge>
-    </filter>
+      </filter>
         {
-          generate_clouds(width, height, state.cloud_cover).map((props, i) =>
+          clouds.map((props, i) =>
             <Cloud { ...props } key={ i }></Cloud>)
         }
     </Fragment>

@@ -3,5 +3,11 @@
   "sunset": "2021-02-10T17:09:00+00:00",
   "icon": "2",
   "icon_phrase": "Default",
-  "cloud_cover": "20"
+  "cloud_cover": "30",
+  "colors": {
+    "cloud_day_foreground": "#fff",
+    "cloud_day_background": "#72b6cf",
+    "sky_day_light": "#72b6cf",
+    "sky_day_dark": "#89d9d9"
+  }
 }
