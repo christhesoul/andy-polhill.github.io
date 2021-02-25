@@ -5,50 +5,50 @@ import { GlobalStateContext } from "../../context/GlobalContextProvider"
 
 import Cloud from "./cloud";
 
-const min_clouds = 2;
-const max_clouds = 30;
+const minClouds = 2;
+const maxClouds = 30;
 
-function generate_clouds(width, height, state) {
+function generateClouds(width, height, timeOfDay, state) {
 
   const clouds = scaleLinear()
     .domain([0, 100])
-    .rangeRound([min_clouds, max_clouds])(state.cloud_cover);
+    .rangeRound([minClouds, maxClouds])(state.cloudCover);
 
-  const x_pos_scale = scaleLinear()
+  const xPosScale = scaleLinear()
     .rangeRound([0, width]);
 
-  const y_pos_scale = scaleLinear()
+  const yPosScale = scaleLinear()
     .rangeRound([height / 4, height / 2]);
 
-  const fill_scale = scaleLinear()
+  const fillScale = scaleLinear()
     .domain([1, clouds])
     .range([
-      state.colors.cloud_day_foreground,
-      state.colors.cloud_day_background
+      state.colors[timeOfDay].cloudForeground,
+      state.colors[timeOfDay].cloudBackground
     ]);
 
   return [...new Array(clouds)].map((a, layer) => ({
-    x: x_pos_scale(Math.random()),
-    y: y_pos_scale((Math.random() / 2) + ((clouds - layer) / 10)),
-    fill: fill_scale(clouds / 1.5  - layer),
+    x: xPosScale(Math.random()),
+    y: yPosScale((Math.random() / 2) + ((clouds - layer) / 10)),
+    fill: fillScale(clouds / 1.5  - layer),
     layer,
   }));
 }
 
-export default function Clouds({ width, height }) {
+export default function Clouds({ width, height, timeOfDay }) {
 
-  const state = useContext(GlobalStateContext);
+  const context = useContext(GlobalStateContext);
 
-  const [clouds, setClouds] = useState([], width, height, state);
+  const [clouds, setClouds] = useState([], width, height, timeOfDay, context);
 
   useEffect(() =>
-    setClouds(generate_clouds(width, height, state)),
-    [width, height, state]
+    setClouds(generateClouds(width, height, timeOfDay, context)),
+    [width, height, timeOfDay, context]
   );
 
   return (
     <Fragment>
-      <filter id="drop-shadow">
+      <filter id="dropShadow">
         <feOffset dx="4" dy="4" result="offsetblur"/>
         <feComponentTransfer>
           <feFuncA type="linear" slope="0.7"/>
@@ -75,4 +75,5 @@ Clouds.propTypes = {
     PropTypes.string,
     PropTypes.number,
   ]),
+  timeOfDay: PropTypes.string
 }

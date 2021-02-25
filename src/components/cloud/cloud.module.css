@@ -1,7 +1,3 @@
-.cloud {
-  transition: all 700ms ease-in-out;
- }
-
-.circle {
-  filter: url(#drop-shadow);
+.cloud__circle {
+  filter: url(#dropShadow);
 }

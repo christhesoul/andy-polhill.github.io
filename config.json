@@ -2,12 +2,21 @@
   "sunrise": "2021-02-10T07:24:00+00:00",
   "sunset": "2021-02-10T17:09:00+00:00",
   "icon": "2",
-  "icon_phrase": "Default",
-  "cloud_cover": "30",
+  "iconPhrase": "Default",
+  "cloudCover": "30",
   "colors": {
-    "cloud_day_foreground": "#fff",
-    "cloud_day_background": "#72b6cf",
-    "sky_day_light": "#72b6cf",
-    "sky_day_dark": "#89d9d9"
+    "day": {
+      "cloudForeground": "#fff",
+      "cloudBackground": "#72b6cf",
+      "skyLight": "#72b6cf",
+      "skyDark": "#89d9d9"
+  
+    },
+    "night": {
+      "cloudForeground": "#5b3374",
+      "cloudBackground": "#3d003d",
+      "skyDark": "#3d003d",
+      "skyLight": "#5b3374"
+    }
   }
 }

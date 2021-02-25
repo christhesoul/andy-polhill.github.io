@@ -14,9 +14,9 @@ outputs:
     description: 'Sun rise displayed in ISO8601 format.'
   icon:
     description: 'Numeric value representing an icon that matches the forecast.'
-  icon_phrase:
+  iconPhrase:
     description: 'Phrase description of the icon.'
-  cloud_cover:
+  cloudCover:
     description: 'Percent representing cloud cover.'
 runs:
   using: 'node12'
