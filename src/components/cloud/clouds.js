@@ -15,7 +15,7 @@ function generate_clouds(width, height, state) {
     .rangeRound([min_clouds, max_clouds])(state.cloud_cover);
 
   const x_pos_scale = scaleLinear()
-    .range([-100, width]);
+    .rangeRound([0, width]);
 
   const y_pos_scale = scaleLinear()
     .rangeRound([height / 4, height / 2]);

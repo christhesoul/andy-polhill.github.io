@@ -1,24 +1,8 @@
-
 .town {
-  background-image: url(../../static/backgrounds.png);
-  background-position: 0px 0px;
-  position: relative;
-  height: 300px;
+  display: flex;
 }
 
-/* .town__sunrise:before,
-.town__sunset:before {
-  content: "";
-  background-image: url(../../static/backgrounds.png);
-  background-position: 0px 600px;
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-} */
+.town__image {
+  flex: 1 0 auto;
+}
 
-
-/* .town__night {
-  background-position: 0px 300px;
-} */

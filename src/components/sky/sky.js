@@ -1,6 +1,5 @@
 import React, { Fragment, useContext, useEffect, useState } from "react";
 import { GlobalStateContext } from "../../context/GlobalContextProvider"
-import styles from "./sky.module.css"
 
 const half_hour = 3600000 / 2;
 
@@ -48,11 +47,17 @@ export default function Sky() {
     <Fragment>
       <defs>
         <linearGradient id="day-sky" gradientTransform="rotate(90)">
-          <stop offset="5%"  stop-color={ state.colors.sky_day_light } />
-          <stop offset="95%" stop-color={ state.colors.sky_day_dark } />
+          <stop offset="5%"  stopColor={ state.colors.sky_day_light } />
+          <stop offset="95%" stopColor={ state.colors.sky_day_dark } />
+        </linearGradient>
+        <linearGradient id="night-sky" gradientTransform="rotate(90)">
+          <stop offset="5%"  stopColor={ state.colors.sky_night_light } />
+          <stop offset="95%" stopColor={ state.colors.sky_night_dark } />
         </linearGradient>
       </defs>
-      <rect className={ styles.sky } fill="url(#day-sky)" height="100%" width="100%"/>
+      <rect fill="url(#day-sky)" height="100%" width="100%"/>
+      { timeOfDay === 'night' && 
+        <rect fill="url(#night-sky)" height="100%" width="100%"/> }
     </Fragment>
   )
 }

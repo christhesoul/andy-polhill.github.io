@@ -70,7 +70,7 @@ export default function Cloud({ layer, x, y, fill }) {
 }
 
 Cloud.propTypes = {
-  x: PropTypes.string,
+  x: PropTypes.number,
   y: PropTypes.number,
   layer: PropTypes.number,
   opacity: PropTypes.number,
