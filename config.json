@@ -15,8 +15,8 @@
     "night": {
       "cloudForeground": "#5b3374",
       "cloudBackground": "#3d003d",
-      "skyDark": "#3d003d",
-      "skyLight": "#5b3374"
+      "skyDark": "#5b3374",
+      "skyLight": "#3d003d"
     }
   }
 }
