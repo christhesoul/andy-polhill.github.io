@@ -58,7 +58,7 @@ export default function Cloud({ layer, ...props }) {
     setCircles(generateCloud(layer)), [layer]);
 
   return (
-    <svg data-layer={ layer } className={ styles.cloud } { ...props } overflow="visible">
+    <svg className={ styles.cloud } { ...props } overflow="visible">
       {
         circles.map((props, i) =>
            <circle className={ styles.cloud__circle } key={ i } { ...props } />

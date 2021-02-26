@@ -4,6 +4,7 @@ import Sky from './sky/sky';
 import { GlobalStateContext } from "../context/GlobalContextProvider"
 
 import styles from "./town.module.css"
+import Stars from './stars/stars';
 
 const halfHour = 1800000;
 
@@ -48,6 +49,7 @@ export default function Town() {
           width={ width }
           height={ height }>
         <Sky timeOfDay={ timeOfDay }></Sky>
+        { timeOfDay === 'night' && <Stars width={ width } height={ height }></Stars> }
         <Clouds timeOfDay={ timeOfDay } width={ width } height={ height }></Clouds>
       </svg>
     </div>
