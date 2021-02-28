@@ -26,12 +26,12 @@ export default function Town() {
   useEffect(() => {
     if((time > msToSunrise - halfHour) &&
       (time < msToSunrise + halfHour)) {
-      return setTimeOfDay('sunrise');
+      return setTimeOfDay('day'/*'sunrise'*/);
     }
 
     if((time > msToSunset - halfHour) &&
       (time < msToSunset + halfHour)) {
-      return setTimeOfDay('sunset');
+      return setTimeOfDay('day'/*'sunset'*/);
     }
 
     if((time > msToSunset + halfHour) ||
