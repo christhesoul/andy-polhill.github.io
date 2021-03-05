@@ -1,4 +1,4 @@
-name: Virtual Town Daylight Hours
+name: Virtual Town Forecast
 
 on:
   schedule:
@@ -8,7 +8,7 @@ on:
 
 
 jobs:
-  fetch-daylight-hours:
+  fetch-forecast:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
@@ -30,9 +30,9 @@ jobs:
       - name: install dependencies
         run: npm ci
 
-      - name: get daylight hours
-        id: daylight
-        uses: ./.github/actions/daylight
+      - name: get forecast
+        id: forecast
+        uses: ./.github/actions/forecast
         with:
           location: 331470
           api-key: ${{ secrets.ACCU_WEATHER_API_KEY }}
@@ -42,56 +42,56 @@ jobs:
         uses: ./.github/actions/write-property
         with:
           key: 'sunrise'
-          value: ${{ steps.daylight.outputs.sunrise }}
+          value: ${{ steps.forecast.outputs.sunrise }}
 
       - name: write sunset 
         id: write-sunset
         uses: ./.github/actions/write-property
         with:
           key: 'sunset'
-          value: ${{ steps.daylight.outputs.sunset }}
+          value: ${{ steps.forecast.outputs.sunset }}
 
       - name: write icon 
         id: write-icon
         uses: ./.github/actions/write-property
         with:
           key: 'icon'
-          value: ${{ steps.daylight.outputs.icon }}
+          value: ${{ steps.forecast.outputs.icon }}
 
       - name: write iconPhrase 
         id: write-icon-phrase
         uses: ./.github/actions/write-property
         with:
           key: 'iconPhrase'
-          value: ${{ steps.daylight.outputs.iconPhrase }}
+          value: ${{ steps.forecast.outputs.iconPhrase }}
 
       - name: write cloudCover
         id: write-cloud-cover
         uses: ./.github/actions/write-property
         with:
           key: 'cloudCover'
-          value: ${{ steps.daylight.outputs.cloudCover }}
+          value: ${{ steps.forecast.outputs.cloudCover }}
 
       - name: write moonPhase
         id: write-moon-phase
         uses: ./.github/actions/write-property
         with:
           key: 'moonPhase'
-          value: ${{ steps.daylight.outputs.moonPhase }}
+          value: ${{ steps.forecast.outputs.moonPhase }}
 
       - name: write moonRise
         id: write-moon-rise
         uses: ./.github/actions/write-property
         with:
           key: 'moonRise'
-          value: ${{ steps.daylight.outputs.moonRise }}
+          value: ${{ steps.forecast.outputs.moonRise }}
 
       - name: write moonSet
         id: write-moon-set
         uses: ./.github/actions/write-property
         with:
           key: 'moonSet'
-          value: ${{ steps.daylight.outputs.moonSet }}
+          value: ${{ steps.forecast.outputs.moonSet }}
 
       - name: build
         run: npm run build -- --prefix-paths
