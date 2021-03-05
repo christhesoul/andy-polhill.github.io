@@ -1,9 +1,12 @@
 {
   "sunrise": "2021-02-10T07:24:00+00:00",
   "sunset": "2021-02-10T17:09:00+00:00",
-  "icon": "2",
+  "icon": 2,
   "iconPhrase": "Default",
-  "cloudCover": "30",
+  "cloudCover": 30,
+  "moonPhase": 1,
+  "moonRise": "2021-02-10T18:09:00+00:00",
+  "moonSet": "2021-02-10T21:09:00+00:00",
   "colors": {
     "day": {
       "cloudForeground": "#fff",

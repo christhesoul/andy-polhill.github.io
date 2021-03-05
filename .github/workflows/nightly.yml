@@ -72,6 +72,27 @@ jobs:
           key: 'cloudCover'
           value: ${{ steps.daylight.outputs.cloudCover }}
 
+      - name: write moonPhase
+        id: write-moon-phase
+        uses: ./.github/actions/write-property
+        with:
+          key: 'moonPhase'
+          value: ${{ steps.daylight.outputs.moonPhase }}
+
+      - name: write moonRise
+        id: write-moon-rise
+        uses: ./.github/actions/write-property
+        with:
+          key: 'moonRise'
+          value: ${{ steps.daylight.outputs.moonRise }}
+
+      - name: write moonSet
+        id: write-moon-set
+        uses: ./.github/actions/write-property
+        with:
+          key: 'moonSet'
+          value: ${{ steps.daylight.outputs.moonSet }}
+
       - name: build
         run: npm run build -- --prefix-paths
 

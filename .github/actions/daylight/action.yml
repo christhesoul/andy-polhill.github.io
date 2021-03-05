@@ -18,6 +18,12 @@ outputs:
     description: 'Phrase description of the icon.'
   cloudCover:
     description: 'Percent representing cloud cover.'
+  moonPhase:
+    description: 'Moon phase.'
+  moonRise:
+    description: 'Moon rise displayed in ISO8601 format.'
+  moonSet:
+    description: 'Moon set displayed in ISO8601 format.'
 runs:
   using: 'node12'
   main: 'index.js'
