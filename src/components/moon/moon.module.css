@@ -1,0 +1,11 @@
+.moon {
+  filter: url(#moonGlow);
+}
+
+.moon_shadow {
+  opacity: 0.90;
+}
+
+.moon_crater {
+  fill: #dcdac9;
+}

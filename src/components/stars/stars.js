@@ -46,20 +46,20 @@ export default function Stars({ width, height }) {
       <defs>
         <filter id="starGlow" filterUnits="userSpaceOnUse"
                 x="-50%" y="-50%" width="500%" height="500%">
-          <feGaussianBlur in="SourceGraphic" stdDeviation="5" result="blur5"/>
-          <feGaussianBlur in="SourceGraphic" stdDeviation="7" result="blur10"/>
-          <feGaussianBlur in="SourceGraphic" stdDeviation="10" result="blur20"/>
-          <feGaussianBlur in="SourceGraphic" stdDeviation="14" result="blur30"/>
-          <feGaussianBlur in="SourceGraphic" stdDeviation="19" result="blur50"/>
+          <feGaussianBlur in="SourceGraphic" stdDeviation="5" result="blur1"/>
+          <feGaussianBlur in="SourceGraphic" stdDeviation="7" result="blur2"/>
+          <feGaussianBlur in="SourceGraphic" stdDeviation="10" result="blur3"/>
+          <feGaussianBlur in="SourceGraphic" stdDeviation="14" result="blur4"/>
+          <feGaussianBlur in="SourceGraphic" stdDeviation="19" result="blur5"/>
           <feMerge result="blurMerged">
-            <feMergeNode in="blur10"/>
-            <feMergeNode in="blur20"/>
-            <feMergeNode in="blur30"/>
-            <feMergeNode in="blur50"/>
+            <feMergeNode in="blur1"/>
+            <feMergeNode in="blur2"/>
+            <feMergeNode in="blur3"/>
+            <feMergeNode in="blur5"/>
           </feMerge>
           <feMerge>
             <feMergeNode in="blurMerged"/>
-            <feMergeNode in="blur5"/>
+            <feMergeNode in="blur1"/>
             <feMergeNode in="SourceGraphic"/>
           </feMerge>
         </filter>

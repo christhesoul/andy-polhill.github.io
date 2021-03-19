@@ -20,7 +20,8 @@ export default function Sky({ timeOfDay }) {
       </defs>
       <rect fill="url(#daySky)" height="100%" width="100%"/>
       { timeOfDay === 'night' && 
-        <rect fill="url(#nightSky)" height="100%" width="100%"/> }
+        <rect fill="url(#nightSky)" height="100%" width="100%"/> 
+        }
     </Fragment>
   )
 }

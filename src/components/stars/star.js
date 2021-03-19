@@ -1,4 +1,4 @@
-import React, { Fragment } from "react";
+import React from "react";
 import PropTypes from 'prop-types';
 
 import styles from "./star.module.css"
@@ -6,9 +6,7 @@ import styles from "./star.module.css"
 export default function Star({ ...props }) {
 
   return (
-    <Fragment>
-      <circle className={ styles.star } { ...props }></circle>
-    </Fragment>
+    <circle className={ styles.star } { ...props }></circle>
   )
 }
 

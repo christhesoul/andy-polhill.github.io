@@ -4,22 +4,24 @@
   "icon": 2,
   "iconPhrase": "Default",
   "cloudCover": 30,
-  "moonPhase": 1,
+  "moonPhase": "WaningGibbous",
   "moonRise": "2021-02-10T18:09:00+00:00",
-  "moonSet": "2021-02-10T21:09:00+00:00",
+  "moonSet": "2021-02-10T23:59:00+00:00",
   "colors": {
     "day": {
       "cloudForeground": "#fff",
       "cloudBackground": "#72b6cf",
       "skyLight": "#72b6cf",
-      "skyDark": "#89d9d9"
-  
+      "skyDark": "#89d9d9",
+      "moon": "#a48db3"  
     },
     "night": {
       "cloudForeground": "#5b3374",
-      "cloudBackground": "#3d003d",
+      "cloudBackground": "#71448d",
+      "skyLight": "#3d003d",
       "skyDark": "#5b3374",
-      "skyLight": "#3d003d"
+      "moon": "#fff",
+      "moonShadow": "#3d003d"
     }
   }
 }
