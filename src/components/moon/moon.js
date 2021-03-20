@@ -145,22 +145,6 @@ export default function Moon({ height, timeOfDay }) {
 
   return (
     <Fragment>
-      <defs>
-        <filter id="moonGlow" filterUnits="userSpaceOnUse"
-                x="-50%" y="-50%" width="400%" height="400%">
-          <feGaussianBlur in="SourceGraphic" stdDeviation="10" result="blur1"/>
-          {/* <feGaussianBlur in="SourceGraphic" stdDeviation="5" result="blur2"/>
-          <feMerge result="blurMerged">
-            <feMergeNode in="blur2"/>
-          </feMerge> */}
-          <feMerge>
-            {/* <feMergeNode in="blurMerged"/> */}
-            <feMergeNode in="blur1"/>
-            <feMergeNode in="SourceGraphic"/>
-          </feMerge>
-        </filter>
-      </defs>
-
       <MoonTexture
         fill={ context.colors[timeOfDay].moon }
         x={ xPos }
@@ -168,7 +152,6 @@ export default function Moon({ height, timeOfDay }) {
         r={ 50 } />
 
         { moonPhases[context.moonPhase] }
-
     </Fragment>
   )
 }

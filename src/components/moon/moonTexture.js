@@ -15,7 +15,21 @@ export default function MoonTexture({ fill, x, y, r }) {
 
   return (
     <g>
+      <defs>
+        <filter id="moonGlow" x="-150%" y="-150%" width="300%" height="300%" filterUnits="objectBoundingBox" primitiveUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+          <feGaussianBlur stdDeviation="20 20" x="0%" y="0%" width="300%" height="300%" in="SourceGraphic" edgeMode="none" result="blur5"/>
+        </filter>
+      </defs>
+
       <circle
+        className={ styles.moon_glow }
+        fill={ fill }
+        r={ r }
+        cx={ x }
+        cy={ y } />
+
+      <circle
+        className={ styles.moon }
         fill={ fill }
         r={ r }
         cx={ x }

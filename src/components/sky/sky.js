@@ -10,12 +10,12 @@ export default function Sky({ timeOfDay }) {
     <Fragment>
       <defs>
         <linearGradient id="daySky" gradientTransform="rotate(90)">
-          <stop offset="5%"  stopColor={ colors.day.skyLight } />
-          <stop offset="95%" stopColor={ colors.day.skyDark } />
+          <stop offset="5%"  stopColor={ colors.day.skyTop } />
+          <stop offset="95%" stopColor={ colors.day.skyBottom } />
         </linearGradient>
         <linearGradient id="nightSky" gradientTransform="rotate(90)">
-          <stop offset="5%"  stopColor={ colors.night.skyLight } />
-          <stop offset="95%" stopColor={ colors.night.skyDark } />
+          <stop offset="5%"  stopColor={ colors.night.skyTop } />
+          <stop offset="95%" stopColor={ colors.night.skyBottom } />
         </linearGradient>
       </defs>
       <rect fill="url(#daySky)" height="100%" width="100%"/>
