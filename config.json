@@ -11,15 +11,24 @@
     "day": {
       "cloudForeground": "#fff",
       "cloudBackground": "#72b6cf",
-      "skyLight": "#72b6cf",
-      "skyDark": "#89d9d9",
-      "moon": "#a48db3"  
+      "skyTop": "#72b6cf",
+      "skyBottom": "#89d9d9",
+      "moon": "#fff",
+      "moonShadow": "#72b6cf"
     },
     "night": {
+      "cloudForeground": "#002746",
+      "cloudBackground": "#01162E",
+      "skyTop": "#01162E",
+      "skyBottom": "#01426D",
+      "moon": "#fff",
+      "moonShadow": "#002746"
+    },
+    "night_old": {
       "cloudForeground": "#5b3374",
       "cloudBackground": "#71448d",
-      "skyLight": "#3d003d",
-      "skyDark": "#5b3374",
+      "skyTop": "#3d003d",
+      "skyBottom": "#5b3374",
       "moon": "#fff",
       "moonShadow": "#3d003d"
     }
