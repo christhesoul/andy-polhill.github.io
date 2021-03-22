@@ -161,7 +161,7 @@ export default function Moon({ height, timeOfDay }) {
         </linearGradient>
       </defs>
 
-      { moonPhases[context.moonPhase] }
+      {/* { moonPhases[context.moonPhase] } */}
     </g>
   )
 }
