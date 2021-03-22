@@ -51,9 +51,12 @@ export default function Town() {
           height={ height }>
         <Sky timeOfDay={ timeOfDay }></Sky>
         { timeOfDay === 'night' && (
-          <Stars width={ width } height={ height } /> 
-          )}
-        <Moon timeOfDay={ timeOfDay } width={ width } height={ height } />
+          <g id="night-sky">
+            <Stars width={ width } height={ height } />
+            {/* TODO: daytime moon */}
+            <Moon timeOfDay={ timeOfDay } width={ width } height={ height } />
+          </g>
+        )}
         <Clouds timeOfDay={ timeOfDay } width={ width } height={ height } />
       </svg>
     </div>

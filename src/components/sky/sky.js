@@ -9,19 +9,12 @@ export default function Sky({ timeOfDay }) {
   return (
     <Fragment>
       <defs>
-        <linearGradient id="daySky" gradientTransform="rotate(90)">
-          <stop offset="5%"  stopColor={ colors.day.skyTop } />
-          <stop offset="95%" stopColor={ colors.day.skyBottom } />
-        </linearGradient>
-        <linearGradient id="nightSky" gradientTransform="rotate(90)">
-          <stop offset="5%"  stopColor={ colors.night.skyTop } />
-          <stop offset="95%" stopColor={ colors.night.skyBottom } />
+        <linearGradient id="sky" gradientTransform="rotate(90)">
+          <stop offset="5%"  stopColor={ colors[timeOfDay].skyTop } />
+          <stop offset="95%" stopColor={ colors[timeOfDay].skyBottom } />
         </linearGradient>
       </defs>
-      <rect fill="url(#daySky)" height="100%" width="100%"/>
-      { timeOfDay === 'night' && 
-        <rect fill="url(#nightSky)" height="100%" width="100%"/> 
-        }
+      <rect fill="url(#sky)" height="100%" width="100%"/> 
     </Fragment>
   )
 }

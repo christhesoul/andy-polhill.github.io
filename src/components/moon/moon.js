@@ -16,14 +16,14 @@ export default function Moon({ height, timeOfDay }) {
   const time = new Date(now) - now.setHours(0,0,0,0);
   const msToMoonRise = new Date(moonRise) - moonRise.setHours(0,0,0,0);
   const msToMoonSet = new Date(moonSet) - moonSet.setHours(0,0,0,0);
+  const radius = 30;
+  const shadowClass = `moon_shadow__${timeOfDay}`;
 
   const minY = 0;
   const maxY = height;
   const xPos = 200;
 
   const [yPos, setYPos] = useState(minY);
-
-  console.log('moonPhase: ', context.moonPhase);
 
   useEffect(() => {
     const yPos = scaleLinear()
@@ -47,7 +47,7 @@ export default function Moon({ height, timeOfDay }) {
             fill={ inverted ? "black" : "white" }
             cx={ xPos + offset }
             cy={ yPos }
-            r={ 50 } />
+            r={ radius } />
         </mask>
       </defs>
     )
@@ -58,8 +58,7 @@ export default function Moon({ height, timeOfDay }) {
       <Fragment>
         { createMask() }
         <rect
-          className={ styles.moon_shadow }
-          fill={ context.colors[timeOfDay].moonShadow }
+          className={ shadowClass }
           x={ xPos - 100 - 10 }
           y={ yPos - 50 - 10 }
           width={ 100 + 20 }
@@ -73,11 +72,10 @@ export default function Moon({ height, timeOfDay }) {
       <Fragment>
         { createMask(true, -25) }
         <circle
-          className={ styles.moon_shadow }
-          fill={ context.colors[timeOfDay].moonShadow }
+          className={ styles[shadowClass] }
           cx={ xPos }
           cy={ yPos }
-          r={ 50 }
+          r={ radius }
           mask="url(#moonPhase)" />
       </Fragment>
     ),
@@ -86,11 +84,10 @@ export default function Moon({ height, timeOfDay }) {
       <Fragment>
         { createMask(true, 25) }
         <circle
-          className={ styles.moon_shadow }
-          fill={ context.colors[timeOfDay].moonShadow }
+          className={ styles[shadowClass] }
           cx={ xPos }
           cy={ yPos }
-          r={ 50 }
+          r={ radius }
           mask="url(#moonPhase)" />
       </Fragment>
     ),
@@ -98,8 +95,7 @@ export default function Moon({ height, timeOfDay }) {
       <Fragment>
         { createMask() }
         <rect
-          className={ styles.moon_shadow }
-          fill={ context.colors[timeOfDay].moonShadow }
+          className={ styles[shadowClass] }
           x={ xPos - 5 }
           y={ yPos - 50 - 10 }
           width={ 100 + 20 }
@@ -113,46 +109,60 @@ export default function Moon({ height, timeOfDay }) {
       <Fragment>
         { createMask() }
         <circle
-          className={ styles.moon_shadow }
-          fill={ context.colors[timeOfDay].moonShadow }
+          className={ styles[shadowClass] }
           cx={ xPos + 25 }
           cy={ yPos }
-          r={ 50 }
+          r={ radius }
           mask="url(#moonPhase)" />
       </Fragment>
     ),
     "NewMoon": (
       <circle
-        className={ styles.moon_shadow }
-        fill={ context.colors[timeOfDay].moonShadow }
+        className={ styles[shadowClass] }
         cx={ xPos }
         cy={ yPos }
-        r={ 50 } />
+        r={ radius } />
     ),
     "WaxingCrescent": (
       <Fragment>
         { createMask() }
         <circle
-          className={ styles.moon_shadow }
-          fill={ context.colors[timeOfDay].moonShadow }
+          className={ styles[shadowClass] }
           cx={ xPos - 25 }
           cy={ yPos }
-          r={ 50 }
+          r={ radius }
           mask="url(#moonPhase)" />
       </Fragment>
     ),
   };
 
-  return (
-    <Fragment>
-      <MoonTexture
-        fill={ context.colors[timeOfDay].moon }
-        x={ xPos }
-        y={ yPos }
-        r={ 50 } />
+  console.log(styles);
 
-        { moonPhases[context.moonPhase] }
-    </Fragment>
+  return (
+    <g id="moon">
+      <MoonTexture
+          fill={ context.colors[timeOfDay].moon }
+          glow={ timeOfDay === 'night' }
+          x={ xPos }
+          y={ yPos }
+          r={ radius }
+          timeOfDay={ timeOfDay } />
+
+      <defs>
+        <linearGradient
+            id="moonShadow"
+            gradientTransform="rotate(90)">
+          <stop
+            offset="70%"
+            stopColor={ context.colors[timeOfDay].skyTop } />
+          <stop
+            offset="90%"
+            stopColor={ context.colors[timeOfDay].skyBottom } />
+        </linearGradient>
+      </defs>
+
+      { moonPhases[context.moonPhase] }
+    </g>
   )
 }
 

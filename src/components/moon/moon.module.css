@@ -1,12 +1,31 @@
+.moon__day {
+  fill: '#fff';
+  opacity: 0.7;
+}
+
+.moon__night {
+  fill: '#fff';
+}
+
 .moon_glow {
   filter: url(#moonGlow);
   opacity: 0.6;
 }
 
-.moon_shadow {
+.moon_shadow__day {
+  opacity: 0.4;
+}
+
+.moon_shadow__night {
+  fill: url(#moonShadow);
   opacity: 0.90;
 }
 
-.moon_crater {
+.moon_crater__day {
+  opacity: 0.5;
+  fill: #dcdac9;
+}
+
+.moon_crater__night {
   fill: #dcdac9;
 }

@@ -1,4 +1,4 @@
-import React, { Fragment, useContext, useState, useEffect } from "react";
+import React, { useContext, useState, useEffect } from "react";
 import { scaleLinear } from "d3-scale";
 import PropTypes from "prop-types";
 
@@ -42,7 +42,7 @@ export default function Stars({ width, height }) {
   );
 
   return (
-    <Fragment>
+    <g id="stars">
       <defs>
         <filter id="starGlow" filterUnits="userSpaceOnUse"
                 x="-50%" y="-50%" width="500%" height="500%">
@@ -65,7 +65,7 @@ export default function Stars({ width, height }) {
         </filter>
       </defs>
       { stars.map((props, i) => <Star { ...props } key={ i }></Star>) }
-    </Fragment>
+    </g>
   )
 }
 
