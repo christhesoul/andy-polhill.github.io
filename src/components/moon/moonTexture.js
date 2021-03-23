@@ -36,6 +36,26 @@ export default function MoonTexture({ fill, x, y, r, glow, timeOfDay }) {
                   edgeMode="none"
                   result="blur5" />
             </filter>
+
+            <filter
+                id="moonCraterShadow"
+                x="-50%"
+                y="-50%"
+                width="200%"
+                height="200%">
+              <feComponentTransfer in="SourceAlpha">
+                <feFuncA type="table" tableValues="1 0" />
+              </feComponentTransfer>
+              <feGaussianBlur stdDeviation="0"/>
+              <feOffset dx="1" dy="1" result="offsetblur"/>
+              <feFlood floodColor="#c0beb3" result="color"/>
+              <feComposite in2="offsetblur" operator="in"/>
+              <feComposite in2="SourceAlpha" operator="in" />
+              <feMerge>
+                <feMergeNode in="SourceGraphic" />
+                <feMergeNode />
+              </feMerge>
+            </filter> 
           </defs>
 
           <circle
@@ -58,6 +78,7 @@ export default function MoonTexture({ fill, x, y, r, glow, timeOfDay }) {
           craters.map(({r, x, y}, i) => (
             <circle
               key={ i }
+              filter="url(#moonCraterShadow)"
               className={ styles[`moon_crater__${timeOfDay}`] }
               r={ r }
               cx={ x }
