@@ -48,7 +48,7 @@ export default function Clouds({ width, height, timeOfDay }) {
 
   return (
     <Fragment>
-      <filter id="dropShadow">
+      <filter id="cloudDropShadow">
         <feOffset dx="4" dy="4" result="offsetblur"/>
         <feComponentTransfer>
           <feFuncA type="linear" slope="0.7"/>
@@ -58,10 +58,30 @@ export default function Clouds({ width, height, timeOfDay }) {
           <feMergeNode in="SourceGraphic"/>
         </feMerge>
       </filter>
+
+      { timeOfDay === 'night' && (
+        <filter id="innerGlow" x="-80%" y="-80%" width="200%" height="200%">
+          <feComponentTransfer in="SourceAlpha">
+            <feFuncA type="table" tableValues="0.3 0" />
+          </feComponentTransfer>
+          <feGaussianBlur stdDeviation="7" />
+          <feOffset dx="10" dy="5" result="offsetblur"/>
+          <feFlood floodColor="#487291" result="color"/>
+          <feComposite in2="offsetblur" operator="in"/>
+          <feComposite in2="SourceAlpha" operator="in" />
+          <feMerge>
+            <feMergeNode in="SourceGraphic" />
+            <feMergeNode />
+          </feMerge>
+        </filter>
+      ) }
+
+      <g filter={ timeOfDay === 'night' ? 'url(#innerGlow)' : null }>
         {
           clouds.map((props, i) =>
             <Cloud { ...props } key={ i }></Cloud>)
         }
+      </g>
     </Fragment>
   )
 }

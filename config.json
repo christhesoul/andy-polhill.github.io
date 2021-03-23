@@ -17,8 +17,8 @@
       "moonShadow": "#72b6cf"
     },
     "night": {
-      "cloudForeground": "#002746",
-      "cloudBackground": "#01162E",
+      "cloudForeground": "#01162E",
+      "cloudBackground": "#002746",
       "skyTop": "#01162E",
       "skyBottom": "#01426D",
       "moon": "#fff",
