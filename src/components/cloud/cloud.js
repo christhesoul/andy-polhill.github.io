@@ -76,6 +76,6 @@ Cloud.propTypes = {
   layer: PropTypes.number,
   opacity: PropTypes.number,
   fill: PropTypes.string,
-  id: PropTypes.string,
+  id: PropTypes.number,
 }
 

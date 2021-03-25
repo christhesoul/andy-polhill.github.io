@@ -136,8 +136,6 @@ export default function Moon({ height, timeOfDay }) {
     ),
   };
 
-  console.log(styles);
-
   return (
     <g id="moon">
       <MoonTexture
@@ -159,6 +157,35 @@ export default function Moon({ height, timeOfDay }) {
             offset="90%"
             stopColor={ context.colors[timeOfDay].skyBottom } />
         </linearGradient>
+
+        <filter
+            id="cloud-inner-glow"
+            x="-200%"
+            y="-200%"
+            width="400%"
+            height="400%">
+          <feSpecularLighting
+              result="moon"
+              in="SourceAlpha"
+              specularExponent="20"
+              lightingColor="#487291">
+                <fePointLight
+                  x={ xPos }
+                  y={ yPos }
+                  z="1">
+               </fePointLight>
+
+          </feSpecularLighting>
+          <feComposite
+              in="SourceGraphic"
+              in2="moon"
+              operator="arithmetic"
+              k1="0"
+              k2="1"
+              k3="5"
+              k4="0"/>
+        </filter>
+
       </defs>
 
       {/* { moonPhases[context.moonPhase] } */}
