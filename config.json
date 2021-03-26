@@ -6,31 +6,5 @@
   "cloudCover": 30,
   "moonPhase": "WaningGibbous",
   "moonRise": "2021-02-10T18:09:00+00:00",
-  "moonSet": "2021-02-10T23:59:00+00:00",
-  "colors": {
-    "day": {
-      "cloudForeground": "#fff",
-      "cloudBackground": "#72b6cf",
-      "skyTop": "#72b6cf",
-      "skyBottom": "#89d9d9",
-      "moon": "#fff",
-      "moonShadow": "#72b6cf"
-    },
-    "night": {
-      "cloudForeground": "#01162E",
-      "cloudBackground": "#002746",
-      "skyTop": "#01162E",
-      "skyBottom": "#01426D",
-      "moon": "#fff",
-      "moonShadow": "#002746"
-    },
-    "night_old": {
-      "cloudForeground": "#5b3374",
-      "cloudBackground": "#71448d",
-      "skyTop": "#3d003d",
-      "skyBottom": "#5b3374",
-      "moon": "#fff",
-      "moonShadow": "#3d003d"
-    }
-  }
+  "moonSet": "2021-02-10T23:59:00+00:00"
 }

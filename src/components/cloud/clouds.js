@@ -1,4 +1,4 @@
-import React, { Fragment, useContext, useState, useEffect } from "react";
+import React, { useContext, useState, useEffect } from "react";
 import { scaleLinear } from "d3-scale";
 import PropTypes from "prop-types";
 import { GlobalStateContext } from "../../context/GlobalContextProvider"
@@ -23,8 +23,10 @@ function generateClouds(width, height, timeOfDay, state) {
   const fillScale = scaleLinear()
     .domain([1, clouds])
     .range([
-      state.colors[timeOfDay].cloudForeground,
-      state.colors[timeOfDay].cloudBackground
+      getComputedStyle(document.documentElement)
+        .getPropertyValue(`--cloud-foreground-${timeOfDay}`),
+      getComputedStyle(document.documentElement)
+        .getPropertyValue(`--cloud-background-${timeOfDay}`)
     ]);
 
   return [...new Array(clouds)].map((a, layer) => ({

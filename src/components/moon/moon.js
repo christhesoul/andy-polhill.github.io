@@ -4,7 +4,6 @@ import { scaleLinear } from "d3-scale";
 import { PropTypes } from "prop-types";
 
 import { GlobalStateContext } from "../../context/GlobalContextProvider"
-import styles from "./moon.module.css"
 import MoonTexture from "./moonTexture";
 
 export default function Moon({ height, timeOfDay }) {
@@ -17,7 +16,6 @@ export default function Moon({ height, timeOfDay }) {
   const msToMoonRise = new Date(moonRise) - moonRise.setHours(0,0,0,0);
   const msToMoonSet = new Date(moonSet) - moonSet.setHours(0,0,0,0);
   const radius = 30;
-  const shadowClass = `moon_shadow__${timeOfDay}`;
 
   const minY = 0;
   const maxY = height;
@@ -33,113 +31,10 @@ export default function Moon({ height, timeOfDay }) {
     setYPos(yPos);
   }, [msToMoonRise, msToMoonSet, time, minY, maxY]);
 
-  function createMask(inverted = false, offset = 0) {
-    return (
-      <defs>
-        <mask id="moonPhase">
-          <rect
-            cx={ 0 }
-            cy={ 0 }
-            width="100%"
-            height="100%"
-            fill={ inverted ? "white" : "black" } />
-          <circle
-            fill={ inverted ? "black" : "white" }
-            cx={ xPos + offset }
-            cy={ yPos }
-            r={ radius } />
-        </mask>
-      </defs>
-    )
-  }
-
-  const moonPhases = {
-    "ThirdQuarter": (
-      <Fragment>
-        { createMask() }
-        <rect
-          className={ shadowClass }
-          x={ xPos - 100 - 10 }
-          y={ yPos - 50 - 10 }
-          width={ 100 + 20 }
-          height={ 100 + 20 } 
-          rx={ 20 }
-          ry={ 80 }
-          mask="url(#moonPhase)" />
-      </Fragment>
-    ),
-    "WaningGibbous": (
-      <Fragment>
-        { createMask(true, -25) }
-        <circle
-          className={ styles[shadowClass] }
-          cx={ xPos }
-          cy={ yPos }
-          r={ radius }
-          mask="url(#moonPhase)" />
-      </Fragment>
-    ),
-    "FullMoon": (null),
-    "WaxingGibbous": (
-      <Fragment>
-        { createMask(true, 25) }
-        <circle
-          className={ styles[shadowClass] }
-          cx={ xPos }
-          cy={ yPos }
-          r={ radius }
-          mask="url(#moonPhase)" />
-      </Fragment>
-    ),
-    "FirstQuarter": (
-      <Fragment>
-        { createMask() }
-        <rect
-          className={ styles[shadowClass] }
-          x={ xPos - 5 }
-          y={ yPos - 50 - 10 }
-          width={ 100 + 20 }
-          height={ 100 + 20 } 
-          rx={ 20 }
-          ry={ 80 }
-          mask="url(#moonPhase)" />
-      </Fragment>
-    ),
-    "WaningCrescent": (
-      <Fragment>
-        { createMask() }
-        <circle
-          className={ styles[shadowClass] }
-          cx={ xPos + 25 }
-          cy={ yPos }
-          r={ radius }
-          mask="url(#moonPhase)" />
-      </Fragment>
-    ),
-    "NewMoon": (
-      <circle
-        className={ styles[shadowClass] }
-        cx={ xPos }
-        cy={ yPos }
-        r={ radius } />
-    ),
-    "WaxingCrescent": (
-      <Fragment>
-        { createMask() }
-        <circle
-          className={ styles[shadowClass] }
-          cx={ xPos - 25 }
-          cy={ yPos }
-          r={ radius }
-          mask="url(#moonPhase)" />
-      </Fragment>
-    ),
-  };
-
   return (
     <g id="moon">
       <MoonTexture
-          fill={ context.colors[timeOfDay].moon }
+          fill="var(--color-moon)"
           glow={ timeOfDay === 'night' }
           x={ xPos }
           y={ yPos }
@@ -147,17 +42,6 @@ export default function Moon({ height, timeOfDay }) {
           timeOfDay={ timeOfDay } />
 
       <defs>
-        <linearGradient
-            id="moonShadow"
-            gradientTransform="rotate(90)">
-          <stop
-            offset="70%"
-            stopColor={ context.colors[timeOfDay].skyTop } />
-          <stop
-            offset="90%"
-            stopColor={ context.colors[timeOfDay].skyBottom } />
-        </linearGradient>
-
         <filter
             id="cloud-inner-glow"
             x="-200%"
@@ -168,7 +52,7 @@ export default function Moon({ height, timeOfDay }) {
               result="moon"
               in="SourceAlpha"
               specularExponent="20"
-              lightingColor="#487291">
+              lightingColor="var(--color-moon-glow)">
                 <fePointLight
                   x={ xPos }
                   y={ yPos }
@@ -187,8 +71,6 @@ export default function Moon({ height, timeOfDay }) {
         </filter>
 
       </defs>
-
-      {/* { moonPhases[context.moonPhase] } */}
     </g>
   )
 }
@@ -204,4 +86,5 @@ Moon.propTypes = {
   ]),
   timeOfDay: PropTypes.string
 }
+
 
