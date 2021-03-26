@@ -1,0 +1,53 @@
+{ "frames": {
+   "backgrounds (Day).aseprite": {
+    "frame": { "x": 0, "y": 0, "w": 18, "h": 300 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 18, "h": 300 },
+    "sourceSize": { "w": 18, "h": 300 },
+    "duration": 100
+   },
+   "backgrounds (Early Evening).aseprite": {
+    "frame": { "x": 0, "y": 300, "w": 18, "h": 300 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 18, "h": 300 },
+    "sourceSize": { "w": 18, "h": 300 },
+    "duration": 100
+   },
+   "backgrounds (Evening).aseprite": {
+    "frame": { "x": 0, "y": 600, "w": 18, "h": 300 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 18, "h": 300 },
+    "sourceSize": { "w": 18, "h": 300 },
+    "duration": 100
+   },
+   "backgrounds (Night).aseprite": {
+    "frame": { "x": 0, "y": 900, "w": 18, "h": 300 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 18, "h": 300 },
+    "sourceSize": { "w": 18, "h": 300 },
+    "duration": 100
+   }
+ },
+ "meta": {
+  "app": "http://www.aseprite.org/",
+  "version": "1.2.25",
+  "image": "backgrounds.png",
+  "format": "RGBA8888",
+  "size": { "w": 18, "h": 1200 },
+  "scale": "1",
+  "frameTags": [
+  ],
+  "layers": [
+   { "name": "Day", "opacity": 255, "blendMode": "normal" },
+   { "name": "Early Evening", "opacity": 245, "blendMode": "normal" },
+   { "name": "Evening", "opacity": 255, "blendMode": "normal" },
+   { "name": "Night", "opacity": 255, "blendMode": "normal" }
+  ],
+  "slices": [
+  ]
+ }
+}
