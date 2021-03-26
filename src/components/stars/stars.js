@@ -44,7 +44,7 @@ export default function Stars({ width, height }) {
   return (
     <g id="stars">
       <defs>
-        <filter id="starGlow" filterUnits="userSpaceOnUse"
+        <filter id="star-glow" filterUnits="userSpaceOnUse"
                 x="-50%" y="-50%" width="500%" height="500%">
           <feGaussianBlur in="SourceGraphic" stdDeviation="5" result="blur1"/>
           <feGaussianBlur in="SourceGraphic" stdDeviation="7" result="blur2"/>

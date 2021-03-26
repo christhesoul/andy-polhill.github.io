@@ -61,7 +61,7 @@ export default function Clouds({ width, height, timeOfDay }) {
         </feMerge>
       </filter>
 
-      <g filter={ timeOfDay === 'night' ? 'url(#cloud-inner-glow)' : null }>
+      <g filter={ timeOfDay === 'night' ? 'url(#moon-lighting)' : null }>
         {
           clouds.map((props, i) =>
             <Cloud { ...props } id={ i } key={ i }></Cloud>)

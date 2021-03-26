@@ -6,7 +6,7 @@ export default function Star({ ...props }) {
   return (
     <circle
       { ...props }
-      filter="url(#starGlow)"
+      filter="url(#star-glow)"
       fill="#fff">  
     </circle>
   )

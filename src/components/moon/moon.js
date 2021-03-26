@@ -33,17 +33,9 @@ export default function Moon({ height, timeOfDay }) {
 
   return (
     <g id="moon">
-      <MoonTexture
-          fill="var(--color-moon)"
-          glow={ timeOfDay === 'night' }
-          x={ xPos }
-          y={ yPos }
-          r={ radius }
-          timeOfDay={ timeOfDay } />
-
       <defs>
         <filter
-            id="cloud-inner-glow"
+            id="moon-lighting"
             x="-200%"
             y="-200%"
             width="400%"
@@ -69,8 +61,15 @@ export default function Moon({ height, timeOfDay }) {
               k3="5"
               k4="0"/>
         </filter>
-
       </defs>
+
+      <MoonTexture
+          fill="var(--color-moon)"
+          glow={ timeOfDay === 'night' }
+          x={ xPos }
+          y={ yPos }
+          r={ radius }
+          timeOfDay={ timeOfDay } />
     </g>
   )
 }
