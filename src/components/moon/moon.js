@@ -1,5 +1,5 @@
 
-import React, { useContext, useState, useEffect, Fragment } from "react";
+import React, { useContext, useState, useEffect } from "react";
 import { scaleLinear } from "d3-scale";
 import { PropTypes } from "prop-types";
 
@@ -19,16 +19,16 @@ export default function Moon({ height, timeOfDay }) {
 
   const minY = 0;
   const maxY = height;
-  const xPos = 200;
+  const x = 200;
 
-  const [yPos, setYPos] = useState(minY);
+  const [y, setY] = useState(minY);
 
   useEffect(() => {
-    const yPos = scaleLinear()
+    const y = scaleLinear()
       .domain([msToMoonRise, msToMoonRise])
       .rangeRound([minY, maxY])(time);
 
-    setYPos(yPos);
+    setY(y);
   }, [msToMoonRise, msToMoonSet, time, minY, maxY]);
 
   return (
@@ -46,9 +46,9 @@ export default function Moon({ height, timeOfDay }) {
               specularExponent="20"
               lightingColor="var(--color-moon-glow)">
                 <fePointLight
-                  x={ xPos }
-                  y={ yPos }
-                  z="1">
+                  x={ x }
+                  y={ y }
+                  z="0">
                </fePointLight>
 
           </feSpecularLighting>
@@ -61,13 +61,32 @@ export default function Moon({ height, timeOfDay }) {
               k3="5"
               k4="0"/>
         </filter>
+
+        <filter
+          id="moon-glow"
+          x="-200%"
+          y="-200%"
+          width="400%"
+          height="400%"
+          filterUnits="objectBoundingBox"
+          primitiveUnits="userSpaceOnUse"
+          colorInterpolationFilters="sRGB">
+            <feGaussianBlur stdDeviation="20 20"
+              x="0%"
+              y="0%"
+              width="300%"
+              height="300%"
+              in="SourceGraphic"
+              edgeMode="none"
+              result="blur5" />
+        </filter>
+
       </defs>
 
       <MoonTexture
           fill="var(--color-moon)"
-          glow={ timeOfDay === 'night' }
-          x={ xPos }
-          y={ yPos }
+          x={ x }
+          y={ y }
           r={ radius }
           timeOfDay={ timeOfDay } />
     </g>

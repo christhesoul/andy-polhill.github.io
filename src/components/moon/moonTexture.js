@@ -1,9 +1,12 @@
 
-import React, { Fragment } from "react";
+import React, { useContext } from "react";
 import { PropTypes } from "prop-types";
-import styles from "./moon.module.css"
+
+import { GlobalStateContext } from "../../context/GlobalContextProvider"
 
 export default function MoonTexture({ fill, x, y, r, glow, timeOfDay }) {
+
+  const { moonPhase } = useContext(GlobalStateContext);
 
   const craters = [
     { r: r / 5, x: 1, y: 1 },
@@ -15,77 +18,104 @@ export default function MoonTexture({ fill, x, y, r, glow, timeOfDay }) {
 
   return (
     <g>
-      { glow && (
-        <Fragment>
-          <defs>
-            <filter
-              id="moonGlow"
-              x="-200%"
-              y="-200%"
-              width="400%"
-              height="400%"
-              filterUnits="objectBoundingBox"
-              primitiveUnits="userSpaceOnUse"
-              colorInterpolationFilters="sRGB">
-                <feGaussianBlur stdDeviation="20 20"
-                  x="0%"
-                  y="0%"
-                  width="300%"
-                  height="300%"
-                  in="SourceGraphic"
-                  edgeMode="none"
-                  result="blur5" />
-            </filter>
+      <defs>
+        <filter
+            id="moon-crater-shadow"
+            x="-50%"
+            y="-50%"
+            width="200%"
+            height="200%">
+          <feComponentTransfer in="SourceAlpha">
+            <feFuncA type="table" tableValues="1 0" />
+          </feComponentTransfer>
+          <feGaussianBlur stdDeviation="0"/>
+          <feOffset dx="1" dy="1" result="offsetblur"/>
+          <feFlood floodColor="#c0beb3" result="color"/>
+          <feComposite in2="offsetblur" operator="in"/>
+          <feComposite in2="SourceAlpha" operator="in" />
+          <feMerge>
+            <feMergeNode in="SourceGraphic" />
+            <feMergeNode />
+          </feMerge>
+        </filter> 
 
-            <filter
-                id="moonCraterShadow"
-                x="-50%"
-                y="-50%"
-                width="200%"
-                height="200%">
-              <feComponentTransfer in="SourceAlpha">
-                <feFuncA type="table" tableValues="1 0" />
-              </feComponentTransfer>
-              <feGaussianBlur stdDeviation="0"/>
-              <feOffset dx="1" dy="1" result="offsetblur"/>
-              <feFlood floodColor="#c0beb3" result="color"/>
-              <feComposite in2="offsetblur" operator="in"/>
-              <feComposite in2="SourceAlpha" operator="in" />
-              <feMerge>
-                <feMergeNode in="SourceGraphic" />
-                <feMergeNode />
-              </feMerge>
-            </filter> 
-          </defs>
-
-          <circle
-            className={ styles.moon_glow }
-            fill={ fill }
-            r={ r }
-            cx={ x }
-            cy={ y } />
-        </Fragment>
-      ) }
-
-      <circle
-        className={ styles[`moon__${timeOfDay}`] }
-        fill={ fill }
-        r={ r }
-        cx={ x }
-        cy={ y } />
-      <g id="craters" transform={ `translate(${x},${y})` }>
-        {
-          craters.map(({r, x, y}, i) => (
+        { moonPhase.includes('Gibbous') && (
+          <mask id="moon-phase">
             <circle
-              key={ i }
-              filter="url(#moonCraterShadow)"
-              className={ styles[`moon_crater__${timeOfDay}`] }
+                fill="white"
+                opacity="0.95"
+                cx={ moonPhase.includes("Waxing") ? x + 10 : x - 10 }
+                cy={ y }
+                r={ r } />
+          </mask>
+        ) }
+
+        { moonPhase.includes('Quarter') && (
+          <mask id="moon-phase">
+            <circle
+                fill="white"
+                opacity="0.95"
+                cx={ moonPhase.includes("First") ? x - (r * 2.75) : x + (r * 2.75) }
+                cy={ y }
+                r={ r * 3 } />
+          </mask>
+        ) }
+
+        { moonPhase === 'NewMoon' && (
+          <mask id="moon-phase">
+            <circle
+              fill="white"
+              opacity="0.1"
               r={ r }
               cx={ x }
               cy={ y } />
+          </mask>
+        ) }
+
+        { moonPhase.includes('Crescent') && (
+          <mask id="moon-phase">
+            <rect
+                width="100%"
+                height="100%"
+                fill="white"
+                opacity="0.95"
+                cx="0"
+                cy="0" />
+            <circle
+                cx={ moonPhase.includes("Waxing") ? x - 18 : x + 18 }
+                cy={ y }
+                r={ r } />
+          </mask>
+        ) }
+      </defs>
+
+      <circle
+        fill="var(#sky-gradient)"
+        opacity="0.175"
+        r={ r }
+        cx={ x }
+        cy={ y } />
+
+      <circle
+        fill={ fill }
+        r={ r }
+        cx={ x }
+        cy={ y }
+        mask="url(#moon-phase)" />
+
+        {
+          craters.map(({r, x: x1, y: y1}, i) => (
+            <circle
+              key={ i }
+              r={ r }
+              cx={ x + x1 }
+              cy={ y  + y1}
+              mask="url(#moon-phase)"
+              filter="url(#moon-crater-shadow)"
+              fill="var(--color-moon-crater)"
+              />
           ))
         }
-      </g>
     </g>
   )
 }
