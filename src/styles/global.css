@@ -23,3 +23,10 @@ body {
   margin: 0;
   font-family: "Roboto", 'arial', sans-serif;
 }
+
+html,
+body,
+#___gatsby,
+#gatsby-focus-wrapper {
+  height: 100%;
+}

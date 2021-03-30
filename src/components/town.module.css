@@ -1,5 +1,14 @@
 .town {
   display: flex;
+  height: 100%;
+}
+
+.town--day {
+  background-color: var(--sky-bottom-day);
+}
+
+.town--night {
+  background-color: var(--sky-bottom-night);
 }
 
 .town__image {

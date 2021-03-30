@@ -1,4 +1,7 @@
 import React, { useContext, useState, useEffect } from 'react'
+import classnames from 'classnames';
+import upperFirst from 'lodash.upperfirst';
+
 import Clouds from './cloud/clouds';
 import Sky from './sky/sky';
 import { GlobalStateContext } from "../context/GlobalContextProvider"
@@ -43,8 +46,13 @@ export default function Town() {
     return setTimeOfDay('day');
   }, [msToSunrise, msToSunset, time]);
 
+  const classes = classnames(
+    styles.town,
+    styles[`town${upperFirst(timeOfDay)}`]
+  )
+
   return (
-    <div className={ styles.town }>
+    <div className={ classes }>
       <svg version='1.1'
           className={ styles.town__image }
           width={ width }
