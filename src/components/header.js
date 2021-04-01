@@ -15,30 +15,50 @@ const minOffset = 0
 export default function Header({ timeOfDay }) {
 
   const size = useWindowSize();
-  const width = 1200;
-  const height = 300;
+  const viewBoxWidth = 1200;
+  const viewBoxHeight = 300;
+
+  const minHeight = 200;
+  const maxHeight = 300;
+
+  const smallScreen = 320;
+  const largeScreen = 1200;
 
   const offset = scaleLinear()
-    .domain([320, 1200])
+    .domain([smallScreen, largeScreen])
     .rangeRound([maxOffset, minOffset])(size.width);
 
+  const height = scaleLinear()
+    .domain([smallScreen, largeScreen])
+    .rangeRound([minHeight, maxHeight])(size.width);
 
   return (
     <svg version='1.1'
         className={ styles.header }
-        viewBox={ `${offset} 0 ${width} ${height}` }
-        preserveAspectRatio="xMidYMid meet"
-        width={ width }
+        viewBox={ `${offset} 0 ${viewBoxWidth} ${viewBoxHeight}` }
+        preserveAspectRatio="xMinYMin meet"
+        width={ viewBoxWidth }
         height={ height }>
-      <Sky timeOfDay={ timeOfDay } width={ width } height={ height }></Sky>
+      <Sky
+        timeOfDay={ timeOfDay }
+        width={ viewBoxWidth }
+        height={ viewBoxHeight } />
       { timeOfDay === 'night' && (
         <g id="night-sky">
-          <Stars width={ width } height={ height } />
+          <Stars
+            width={ viewBoxWidth }
+            height={ viewBoxHeight } />
           {/* TODO: daytime moon */}
-          <Moon timeOfDay={ timeOfDay } width={ width } height={ height } />
+          <Moon
+            timeOfDay={ timeOfDay }
+            width={ viewBoxWidth }
+            height={ viewBoxHeight } />
         </g>
       )}
-      <Clouds timeOfDay={ timeOfDay } width={ width } height={ height } />
+      <Clouds
+        timeOfDay={ timeOfDay }
+        width={ viewBoxWidth }
+        height={ viewBoxHeight } />
     </svg>
   )
 }
