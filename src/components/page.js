@@ -1,21 +1,16 @@
 import React, { useContext, useState, useEffect } from 'react'
 import classnames from 'classnames';
 import upperFirst from 'lodash.upperfirst';
+import Loadable from "@loadable/component"
 
-import Clouds from './cloud/clouds';
-import Sky from './sky/sky';
 import { GlobalStateContext } from "../context/GlobalContextProvider"
 
-import styles from "./town.module.css"
-import Stars from './stars/stars';
-import Moon from './moon/moon';
+import styles from "./page.module.css"
 
 const halfHour = 1800000;
+const Header = Loadable(() => import("./Header"))
 
-export default function Town() {
-
-  const width = 1200;
-  const height = 300;
+export default function Page() {
 
   const context = useContext(GlobalStateContext);
   const now = new Date();
@@ -47,26 +42,13 @@ export default function Town() {
   }, [msToSunrise, msToSunset, time]);
 
   const classes = classnames(
-    styles.town,
-    styles[`town${upperFirst(timeOfDay)}`]
+    styles.page,
+    styles[`page${upperFirst(timeOfDay)}`]
   )
 
   return (
     <div className={ classes }>
-      <svg version='1.1'
-          className={ styles.town__image }
-          width={ width }
-          height={ height }>
-        <Sky timeOfDay={ timeOfDay }></Sky>
-        { timeOfDay === 'night' && (
-          <g id="night-sky">
-            <Stars width={ width } height={ height } />
-            {/* TODO: daytime moon */}
-            <Moon timeOfDay={ timeOfDay } width={ width } height={ height } />
-          </g>
-        )}
-        <Clouds timeOfDay={ timeOfDay } width={ width } height={ height } />
-      </svg>
+      <Header timeOfDay={ timeOfDay }></Header>
     </div>
   )
 }

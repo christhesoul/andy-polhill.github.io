@@ -29,7 +29,7 @@ function generateClouds(width, height, timeOfDay, state) {
         .getPropertyValue(`--cloud-background-${timeOfDay}`)
     ]);
 
-  return [...new Array(clouds)].map((a, layer) => ({
+  return [...new Array(clouds)].map((_, layer) => ({
     x: xPosScale(Math.random()),
     y: yPosScale((Math.random() / 2) + ((clouds - layer) / 10)),
     fill: fillScale(clouds / 1.5  - layer),
@@ -49,7 +49,7 @@ export default function Clouds({ width, height, timeOfDay }) {
   );
 
   return (
-    <g id="clouds">
+    <svg id="clouds" width={ width } height={ height }>
       <filter id="cloud-drop-shadow">
         <feOffset dx="4" dy="4" result="offsetblur"/>
         <feComponentTransfer>
@@ -67,18 +67,12 @@ export default function Clouds({ width, height, timeOfDay }) {
             <Cloud { ...props } id={ i } key={ i }></Cloud>)
         }
       </g>
-    </g>
+    </svg>
   )
 }
 
 Clouds.propTypes = {
-  width: PropTypes.oneOfType([
-    PropTypes.string,
-    PropTypes.number,
-  ]),
-  height: PropTypes.oneOfType([
-    PropTypes.string,
-    PropTypes.number,
-  ]),
+  width: PropTypes.number,
+  height: PropTypes.number,
   timeOfDay: PropTypes.string
 }

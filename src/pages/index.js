@@ -1,8 +1,8 @@
 import React from "react"
-import Town from "../components/town"
+import Page from "../components/page"
 
 export default function Home() {
   return (
-      <Town />
+      <Page />
   )
 }

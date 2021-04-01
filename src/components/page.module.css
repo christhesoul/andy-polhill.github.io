@@ -1,16 +1,13 @@
-.town {
+.page {
   display: flex;
   height: 100%;
+  overflow: hidden;
 }
 
-.town--day {
+.page--day {
   background-color: var(--sky-bottom-day);
 }
 
-.town--night {
+.page--night {
   background-color: var(--sky-bottom-night);
-}
-
-.town__image {
-  flex: 1 0 auto;
 }
