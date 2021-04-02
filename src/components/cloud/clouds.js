@@ -6,7 +6,7 @@ import { GlobalStateContext } from "../../context/GlobalContextProvider"
 import Cloud from "./cloud";
 
 const minClouds = 2;
-const maxClouds = 20;
+const maxClouds = 15;
 
 function generateClouds(width, height, timeOfDay, state) {
 
