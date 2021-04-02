@@ -7,7 +7,7 @@ import Stars from './stars/stars';
 import Moon from './moon/moon';
 import { useWindowSize } from '../hooks/useWindowSize';
 
-import styles from "./header.module.css"
+import * as styles from "./header.module.css";
 
 const maxOffset = 130;
 const minOffset = 0

@@ -5,7 +5,7 @@ import Loadable from "@loadable/component"
 
 import { GlobalStateContext } from "../context/GlobalContextProvider"
 
-import styles from "./page.module.css"
+import * as styles from "./page.module.css"
 
 const halfHour = 1800000;
 const Header = Loadable(() => import("./Header"))
