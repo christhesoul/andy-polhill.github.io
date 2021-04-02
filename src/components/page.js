@@ -1,14 +1,14 @@
 import React, { useContext, useState, useEffect } from 'react'
-import classnames from 'classnames';
-import upperFirst from 'lodash.upperfirst';
-import Loadable from "@loadable/component"
+import classnames from "classnames";
+import upperFirst from "lodash.upperfirst";
+import Loadable from "@loadable/component";
 
 import { GlobalStateContext } from "../context/GlobalContextProvider"
 
 import * as styles from "./page.module.css"
 
 const halfHour = 1800000;
-const Header = Loadable(() => import("./Header"))
+const Header = Loadable(() => import("./header/header"))
 
 export default function Page() {
 
@@ -20,7 +20,7 @@ export default function Page() {
   const msToSunrise = new Date(sunrise) - sunrise.setHours(0,0,0,0);
   const msToSunset = new Date(sunset) - sunset.setHours(0,0,0,0);
 
-  const [timeOfDay, setTimeOfDay] = useState('day', msToSunrise,  msToSunset, time);
+  const [timeOfDay, setTimeOfDay] = useState("day", msToSunrise,  msToSunset, time);
 
   useEffect(() => {
     if((time > msToSunrise - halfHour) &&

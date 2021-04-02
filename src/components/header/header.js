@@ -1,11 +1,11 @@
 import React from 'react'
 import { scaleLinear } from "d3-scale";
 
-import Clouds from './cloud/clouds';
-import Sky from './sky/sky';
-import Stars from './stars/stars';
-import Moon from './moon/moon';
-import { useWindowSize } from '../hooks/useWindowSize';
+import Clouds from '../cloud/clouds';
+import Sky from '../sky/sky';
+import Stars from '../stars/stars';
+import Moon from '../moon/moon';
+import { useWindowSize } from '../../hooks/useWindowSize';
 
 import * as styles from "./header.module.css";
 
