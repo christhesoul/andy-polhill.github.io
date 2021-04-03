@@ -1,5 +1,5 @@
 import React from "react";
-import PropTypes from 'prop-types';
+import PropTypes from "prop-types";
 
 export default function Star({ ...props }) {
 
@@ -9,12 +9,12 @@ export default function Star({ ...props }) {
       filter="url(#star-glow)"
       fill="#fff">  
     </circle>
-  )
+  );
 }
 
 Star.propTypes = {
   cx: PropTypes.number,
   cy: PropTypes.number,
   r: PropTypes.number
-}
+};
 

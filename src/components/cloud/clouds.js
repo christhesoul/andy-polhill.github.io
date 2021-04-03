@@ -1,7 +1,7 @@
 import React, { useContext, useState, useEffect } from "react";
 import { scaleLinear } from "d3-scale";
 import PropTypes from "prop-types";
-import { GlobalStateContext } from "../../context/GlobalContextProvider"
+import { GlobalStateContext } from "../../context/GlobalContextProvider";
 
 import Cloud from "./cloud";
 
@@ -45,7 +45,7 @@ export default function Clouds({ width, height, timeOfDay }) {
 
   useEffect(() =>
     setClouds(generateClouds(width, height, timeOfDay, context)),
-    [width, height, timeOfDay, context]
+  [width, height, timeOfDay, context]
   );
 
   return (
@@ -61,18 +61,18 @@ export default function Clouds({ width, height, timeOfDay }) {
         </feMerge>
       </filter>
 
-      <g filter={ timeOfDay === 'night' ? 'url(#moon-lighting)' : null }>
+      <g filter={ timeOfDay === "night" ? "url(#moon-lighting)" : null }>
         {
           clouds.map((props, i) =>
             <Cloud { ...props } id={ i } key={ i }></Cloud>)
         }
       </g>
     </svg>
-  )
+  );
 }
 
 Clouds.propTypes = {
-  width: PropTypes.number,
-  height: PropTypes.number,
-  timeOfDay: PropTypes.string
-}
+  width: PropTypes.number.isRequired,
+  height: PropTypes.number.isRequired,
+  timeOfDay: PropTypes.string.isRequired
+};

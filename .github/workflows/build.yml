@@ -1,4 +1,4 @@
-name: Virtual Town Forecast
+name: Build
 
 on:
   schedule:

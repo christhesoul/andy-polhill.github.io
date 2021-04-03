@@ -1,5 +1,5 @@
-import { useState, useEffect } from 'react';
-import debounce from 'lodash.debounce';
+import { useState, useEffect } from "react";
+import debounce from "lodash.debounce";
 
 export function useWindowSize() {
   // Initialize state with undefined width/height so server and client renders match
@@ -18,7 +18,7 @@ export function useWindowSize() {
     }
     
     // Add event listener
-    const debouncedHandleResize = debounce(handleResize, 150)
+    const debouncedHandleResize = debounce(handleResize, 150);
     window.addEventListener("resize", debouncedHandleResize);
     
     handleResize();

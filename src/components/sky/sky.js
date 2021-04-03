@@ -13,12 +13,12 @@ export default function Sky({ timeOfDay, width, height }) {
       </defs>
       <rect fill="url(#sky-gradient)" height={ height } width={ width } /> 
     </svg>
-  )
+  );
 }
 
 Sky.propTypes = {
   width: PropTypes.number,
   height: PropTypes.number,
   timeOfDay: PropTypes.string
-}
+};
 

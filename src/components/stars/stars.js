@@ -2,7 +2,7 @@ import React, { useContext, useState, useEffect } from "react";
 import { scaleLinear } from "d3-scale";
 import PropTypes from "prop-types";
 
-import { GlobalStateContext } from "../../context/GlobalContextProvider"
+import { GlobalStateContext } from "../../context/GlobalContextProvider";
 import Star from "./star";
 
 //TODO: Keep stars in the same place
@@ -38,19 +38,19 @@ export default function Stars({ width, height }) {
 
   useEffect(() =>
     setStars(generateStars(width, height, context)),
-    [width, height, context]
+  [width, height, context]
   );
 
   return (
     <g id="stars">
       <defs>
         <filter
-            id="star-glow"
-            filterUnits="userSpaceOnUse"
-            x="-50%"
-            y="-50%"
-            width="500%"
-            height="500%">
+          id="star-glow"
+          filterUnits="userSpaceOnUse"
+          x="-50%"
+          y="-50%"
+          width="500%"
+          height="500%">
           <feGaussianBlur in="SourceGraphic" stdDeviation="5" result="blur1"/>
           <feGaussianBlur in="SourceGraphic" stdDeviation="7" result="blur2"/>
           <feGaussianBlur in="SourceGraphic" stdDeviation="10" result="blur3"/>
@@ -71,7 +71,7 @@ export default function Stars({ width, height }) {
       </defs>
       { stars.map((props, i) => <Star { ...props } key={ i }></Star>) }
     </g>
-  )
+  );
 }
 
 Stars.propTypes = {
@@ -83,4 +83,4 @@ Stars.propTypes = {
     PropTypes.string,
     PropTypes.number,
   ]),
-}
+};

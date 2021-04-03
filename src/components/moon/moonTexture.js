@@ -2,9 +2,9 @@
 import React, { useContext } from "react";
 import { PropTypes } from "prop-types";
 
-import { GlobalStateContext } from "../../context/GlobalContextProvider"
+import { GlobalStateContext } from "../../context/GlobalContextProvider";
 
-export default function MoonTexture({ fill, x, y, r, glow, timeOfDay }) {
+export default function MoonTexture({ fill, x, y, r }) {
 
   const { moonPhase } = useContext(GlobalStateContext);
 
@@ -20,11 +20,11 @@ export default function MoonTexture({ fill, x, y, r, glow, timeOfDay }) {
     <g>
       <defs>
         <filter
-            id="moon-crater-shadow"
-            x="-50%"
-            y="-50%"
-            width="200%"
-            height="200%">
+          id="moon-crater-shadow"
+          x="-50%"
+          y="-50%"
+          width="200%"
+          height="200%">
           <feComponentTransfer in="SourceAlpha">
             <feFuncA type="table" tableValues="1 0" />
           </feComponentTransfer>
@@ -39,29 +39,29 @@ export default function MoonTexture({ fill, x, y, r, glow, timeOfDay }) {
           </feMerge>
         </filter> 
 
-        { moonPhase.includes('Gibbous') && (
+        { moonPhase.includes("Gibbous") && (
           <mask id="moon-phase">
             <circle
-                fill="white"
-                opacity="0.95"
-                cx={ moonPhase.includes("Waxing") ? x + 10 : x - 10 }
-                cy={ y }
-                r={ r } />
+              fill="white"
+              opacity="0.95"
+              cx={ moonPhase.includes("Waxing") ? x + 10 : x - 10 }
+              cy={ y }
+              r={ r } />
           </mask>
         ) }
 
-        { moonPhase.includes('Quarter') && (
+        { moonPhase.includes("Quarter") && (
           <mask id="moon-phase">
             <circle
-                fill="white"
-                opacity="0.95"
-                cx={ moonPhase.includes("First") ? x - (r * 2.75) : x + (r * 2.75) }
-                cy={ y }
-                r={ r * 3 } />
+              fill="white"
+              opacity="0.95"
+              cx={ moonPhase.includes("First") ? x - (r * 2.75) : x + (r * 2.75) }
+              cy={ y }
+              r={ r * 3 } />
           </mask>
         ) }
 
-        { moonPhase === 'NewMoon' && (
+        { moonPhase === "NewMoon" && (
           <mask id="moon-phase">
             <circle
               fill="white"
@@ -72,19 +72,19 @@ export default function MoonTexture({ fill, x, y, r, glow, timeOfDay }) {
           </mask>
         ) }
 
-        { moonPhase.includes('Crescent') && (
+        { moonPhase.includes("Crescent") && (
           <mask id="moon-phase">
             <rect
-                width="100%"
-                height="100%"
-                fill="white"
-                opacity="0.95"
-                cx="0"
-                cy="0" />
+              width="100%"
+              height="100%"
+              fill="white"
+              opacity="0.95"
+              cx="0"
+              cy="0" />
             <circle
-                cx={ moonPhase.includes("Waxing") ? x - 18 : x + 18 }
-                cy={ y }
-                r={ r } />
+              cx={ moonPhase.includes("Waxing") ? x - 18 : x + 18 }
+              cy={ y }
+              r={ r } />
           </mask>
         ) }
       </defs>
@@ -103,21 +103,21 @@ export default function MoonTexture({ fill, x, y, r, glow, timeOfDay }) {
         cy={ y }
         mask="url(#moon-phase)" />
 
-        {
-          craters.map(({r, x: x1, y: y1}, i) => (
-            <circle
-              key={ i }
-              r={ r }
-              cx={ x + x1 }
-              cy={ y  + y1}
-              mask="url(#moon-phase)"
-              filter="url(#moon-crater-shadow)"
-              fill="var(--color-moon-crater)"
-              />
-          ))
-        }
+      {
+        craters.map(({r, x: x1, y: y1}, i) => (
+          <circle
+            key={ i }
+            r={ r }
+            cx={ x + x1 }
+            cy={ y  + y1}
+            mask="url(#moon-phase)"
+            filter="url(#moon-crater-shadow)"
+            fill="var(--color-moon-crater)"
+          />
+        ))
+      }
     </g>
-  )
+  );
 }
 
 MoonTexture.propTypes = {
@@ -127,5 +127,5 @@ MoonTexture.propTypes = {
   fill: PropTypes.string,
   r: PropTypes.number,
   timeOfDay: PropTypes.string
-}
+};
 

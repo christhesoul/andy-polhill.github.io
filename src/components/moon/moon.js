@@ -3,7 +3,7 @@ import React, { useContext, useState, useEffect } from "react";
 import { scaleLinear } from "d3-scale";
 import { PropTypes } from "prop-types";
 
-import { GlobalStateContext } from "../../context/GlobalContextProvider"
+import { GlobalStateContext } from "../../context/GlobalContextProvider";
 import MoonTexture from "./moonTexture";
 
 export default function Moon({ height, timeOfDay }) {
@@ -35,31 +35,31 @@ export default function Moon({ height, timeOfDay }) {
     <g id="moon">
       <defs>
         <filter
-            id="moon-lighting"
-            x="-200%"
-            y="-200%"
-            width="400%"
-            height="400%">
+          id="moon-lighting"
+          x="-200%"
+          y="-200%"
+          width="400%"
+          height="400%">
           <feSpecularLighting
-              result="moon"
-              in="SourceAlpha"
-              specularExponent="20"
-              lightingColor="var(--color-moon-glow)">
-                <fePointLight
-                  x={ x }
-                  y={ y }
-                  z="0">
-               </fePointLight>
+            result="moon"
+            in="SourceAlpha"
+            specularExponent="20"
+            lightingColor="var(--color-moon-glow)">
+            <fePointLight
+              x={ x }
+              y={ y }
+              z="0">
+            </fePointLight>
 
           </feSpecularLighting>
           <feComposite
-              in="SourceGraphic"
-              in2="moon"
-              operator="arithmetic"
-              k1="0"
-              k2="1"
-              k3="5"
-              k4="0"/>
+            in="SourceGraphic"
+            in2="moon"
+            operator="arithmetic"
+            k1="0"
+            k2="1"
+            k3="5"
+            k4="0"/>
         </filter>
 
         <filter
@@ -71,26 +71,26 @@ export default function Moon({ height, timeOfDay }) {
           filterUnits="objectBoundingBox"
           primitiveUnits="userSpaceOnUse"
           colorInterpolationFilters="sRGB">
-            <feGaussianBlur stdDeviation="20 20"
-              x="0%"
-              y="0%"
-              width="300%"
-              height="300%"
-              in="SourceGraphic"
-              edgeMode="none"
-              result="blur5" />
+          <feGaussianBlur stdDeviation="20 20"
+            x="0%"
+            y="0%"
+            width="300%"
+            height="300%"
+            in="SourceGraphic"
+            edgeMode="none"
+            result="blur5" />
         </filter>
 
       </defs>
 
       <MoonTexture
-          fill="var(--color-moon)"
-          x={ x }
-          y={ y }
-          r={ radius }
-          timeOfDay={ timeOfDay } />
+        fill="var(--color-moon)"
+        x={ x }
+        y={ y }
+        r={ radius }
+        timeOfDay={ timeOfDay } />
     </g>
-  )
+  );
 }
 
 Moon.propTypes = {
@@ -103,6 +103,6 @@ Moon.propTypes = {
     PropTypes.number,
   ]),
   timeOfDay: PropTypes.string
-}
+};
 
 

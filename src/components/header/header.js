@@ -1,16 +1,17 @@
-import React from 'react'
+import React from "react";
 import { scaleLinear } from "d3-scale";
+import PropTypes from "prop-types";
 
-import Clouds from '../cloud/clouds';
-import Sky from '../sky/sky';
-import Stars from '../stars/stars';
-import Moon from '../moon/moon';
-import { useWindowSize } from '../../hooks/useWindowSize';
+import Clouds from "../cloud/clouds";
+import Sky from "../sky/sky";
+import Stars from "../stars/stars";
+import Moon from "../moon/moon";
+import { useWindowSize } from "../../hooks/useWindowSize";
 
 import * as styles from "./header.module.css";
 
 const maxOffset = 130;
-const minOffset = 0
+const minOffset = 0;
 
 export default function Header({ timeOfDay }) {
 
@@ -34,16 +35,16 @@ export default function Header({ timeOfDay }) {
 
   return (
     <svg version='1.1'
-        className={ styles.header }
-        viewBox={ `${offset} 0 ${viewBoxWidth} ${viewBoxHeight}` }
-        preserveAspectRatio="xMinYMin meet"
-        width={ viewBoxWidth }
-        height={ height }>
+      className={ styles.header }
+      viewBox={ `${offset} 0 ${viewBoxWidth} ${viewBoxHeight}` }
+      preserveAspectRatio="xMinYMin meet"
+      width={ viewBoxWidth }
+      height={ height }>
       <Sky
         timeOfDay={ timeOfDay }
         width={ viewBoxWidth }
         height={ viewBoxHeight } />
-      { timeOfDay === 'night' && (
+      { timeOfDay === "night" && (
         <g id="night-sky">
           <Stars
             width={ viewBoxWidth }
@@ -60,5 +61,9 @@ export default function Header({ timeOfDay }) {
         width={ viewBoxWidth }
         height={ viewBoxHeight } />
     </svg>
-  )
+  );
 }
+
+Header.propTypes = {
+  timeOfDay: PropTypes.string.isRequired
+};

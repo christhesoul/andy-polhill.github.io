@@ -1,6 +1,6 @@
 import React, { useState, useEffect, Fragment } from "react";
 import { scaleLinear } from "d3-scale";
-import PropTypes from 'prop-types';
+import PropTypes from "prop-types";
 
 const minWidth = 20;
 const maxWidth = 200;
@@ -41,7 +41,7 @@ function generateCloud(layer) {
         r,
         cx: currentX,
         cy: gravityScale((rSeed + Math.random()) / 2) - (row * 20),
-      })
+      });
     }
     row++;
   }
@@ -58,8 +58,8 @@ export default function Cloud({ layer, ...props }) {
   return (
     <Fragment>
       <svg { ...props }
-          id={ `cloud-${ props.id }`}
-          overflow="visible">
+        id={ `cloud-${ props.id }`}
+        overflow="visible">
         {
           circles.map((props, i) =>
             <circle filter="url(#cloud-drop-shadow)" key={ i } { ...props } />
@@ -67,7 +67,7 @@ export default function Cloud({ layer, ...props }) {
         }
       </svg>
     </Fragment>
-  )
+  );
 }
 
 Cloud.propTypes = {
@@ -77,5 +77,5 @@ Cloud.propTypes = {
   opacity: PropTypes.number,
   fill: PropTypes.string,
   id: PropTypes.number,
-}
+};
 
