@@ -1,3 +1,5 @@
+@import "./typography.css";
+
 :root {
   --color-grey-dark: #887d8d;
   --color-grey-mid: #b8b4b2;
@@ -29,4 +31,8 @@ body,
 #___gatsby,
 #gatsby-focus-wrapper {
   height: 100%;
+}
+
+h1, h2, h3 {
+  font-family: 'Libre Baskerville', serif;
 }

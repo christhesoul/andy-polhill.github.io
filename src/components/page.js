@@ -2,6 +2,7 @@ import React, { useContext, useState, useEffect } from "react";
 import classnames from "classnames";
 import upperFirst from "lodash.upperfirst";
 import Loadable from "@loadable/component";
+import About from "./about/about";
 
 import { GlobalStateContext } from "../context/GlobalContextProvider";
 
@@ -48,7 +49,9 @@ export default function Page() {
 
   return (
     <div className={ classes }>
-      <Header timeOfDay={ timeOfDay }></Header>
+      <Header timeOfDay={ timeOfDay } />
+
+      <About />
     </div>
   );
 }

@@ -1,0 +1,10 @@
+.about {
+  color: white;
+  flex: 1 0 auto;
+  display: flex;
+  justify-content: center;
+}
+
+h2 {
+  font-size: 2em;
+}
