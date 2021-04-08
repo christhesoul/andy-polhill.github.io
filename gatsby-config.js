@@ -5,6 +5,6 @@
  */
 
 module.exports = {
-  pathPrefix: '/virtual-town',
+  pathPrefix: "/",
   plugins: [],
-}
+};
