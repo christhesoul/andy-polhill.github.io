@@ -8,12 +8,12 @@ import Stars from "../stars/stars";
 import Moon from "../moon/moon";
 import { useWindowSize } from "../../hooks/useWindowSize";
 
-import * as styles from "./header.module.css";
+import * as styles from "./hero.module.css";
 
 const maxOffset = 130;
 const minOffset = 0;
 
-export default function Header({ timeOfDay }) {
+export default function Hero({ timeOfDay }) {
 
   const size = useWindowSize();
   const viewBoxWidth = 1200;
@@ -35,7 +35,7 @@ export default function Header({ timeOfDay }) {
 
   return (
     <svg version='1.1'
-      className={ styles.header }
+      className={ styles.hero }
       viewBox={ `${offset} 0 ${viewBoxWidth} ${viewBoxHeight}` }
       preserveAspectRatio="xMinYMin meet"
       width={ viewBoxWidth }
@@ -64,6 +64,6 @@ export default function Header({ timeOfDay }) {
   );
 }
 
-Header.propTypes = {
+Hero.propTypes = {
   timeOfDay: PropTypes.string.isRequired
 };

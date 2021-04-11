@@ -9,7 +9,7 @@ import { GlobalStateContext } from "../context/GlobalContextProvider";
 import * as styles from "./page.module.css";
 
 const halfHour = 1800000;
-const Header = Loadable(() => import("./header/header"));
+const Hero = Loadable(() => import("./hero/hero"));
 
 export default function Page() {
 
@@ -49,7 +49,7 @@ export default function Page() {
 
   return (
     <div className={ classes }>
-      <Header timeOfDay={ timeOfDay } />
+      <Hero timeOfDay={ timeOfDay } />
 
       <About />
     </div>
