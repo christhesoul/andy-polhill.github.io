@@ -8,7 +8,7 @@
     "build": "gatsby build",
     "develop": "gatsby develop",
     "format": "prettier --write \"**/*.{js,jsx,ts,tsx,json,md}\"",
-    "start": "npm run develop",
+    "start": "yarn develop",
     "serve": "gatsby serve",
     "clean": "gatsby clean",
     "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\" && exit 1"
@@ -21,6 +21,7 @@
     "classnames": "^2.2.6",
     "d3-scale": "^3.2.3",
     "gatsby": "^3.2.1",
+    "gatsby-remark-external-links": "^0.0.4",
     "gatsby-source-filesystem": "^3.2.0",
     "gatsby-transformer-remark": "^3.2.0",
     "graphql": "^15.5.0",
@@ -37,9 +38,9 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/andy-polhill/andy-polhill"
+    "url": "https://github.com/andy-polhill/andy-polhill.github.io"
   },
   "bugs": {
-    "url": "https://github.com/andy-polhill/andy-polhill/issues"
+    "url": "https://github.com/andy-polhill/andy-polhill.github.io/issues"
   }
 }

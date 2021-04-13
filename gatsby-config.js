@@ -14,6 +14,13 @@ module.exports = {
         path: "./src/content",
       },
     },
+    {
+      resolve: "gatsby-remark-external-links",
+      options: {
+        target: "_self",
+        rel: "nofollow"
+      }
+    },
     "gatsby-transformer-remark",
   ]
 };
