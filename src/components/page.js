@@ -36,7 +36,8 @@ export default function Page() {
 
     if((time > msToSunset + halfHour) ||
       (time < msToSunrise - halfHour)) {
-      return setTimeOfDay("night");
+      // TODO: Style night mode
+      return setTimeOfDay("day"/*'night'*/);
     }
 
     return setTimeOfDay("day");
@@ -50,7 +51,6 @@ export default function Page() {
   return (
     <div className={ classes }>
       <Hero timeOfDay={ timeOfDay } />
-
       <About />
     </div>
   );

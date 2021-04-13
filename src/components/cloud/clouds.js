@@ -7,6 +7,7 @@ import Cloud from "./cloud";
 
 const minClouds = 2;
 const maxClouds = 15;
+const cloudRange = 1200;
 
 function generateClouds(width, height, timeOfDay, state) {
 
@@ -49,7 +50,10 @@ export default function Clouds({ width, height, timeOfDay }) {
   );
 
   return (
-    <svg id="clouds" width={ width } height={ height }>
+    <svg
+      id="clouds"
+      viewBox={ `0 0 ${cloudRange} 300` }
+      preserveAspectRatio="xMidYMid meet">
       <filter id="cloud-drop-shadow">
         <feOffset dx="4" dy="4" result="offsetblur"/>
         <feComponentTransfer>

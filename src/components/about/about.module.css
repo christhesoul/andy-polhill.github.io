@@ -1,10 +1,48 @@
 .about {
   color: white;
   flex: 1 0 auto;
-  display: flex;
-  justify-content: center;
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-auto-rows: min-content;
+  padding: 20px;
 }
 
 h2 {
+  grid-column-start: 1;
+  grid-column-end: 1;
   font-size: 2em;
+}
+
+h2 em {
+  font-style: normal;
+  color: var(--color-purple);
+}
+
+p {
+  font-family: "Montserrat", 'arial', sans-serif;
+  color: var(--color-purple);
+  text-align: justify;
+  line-height: 1.5;
+}
+
+@media (min-width: 768px) {
+
+  .about {
+    width: 100%;
+  }
+
+  h2 {
+    grid-column-start: 1;
+    grid-column-end: 3;
+    font-size: 2.5em;
+    text-align: left;
+  }
+
+  .about {
+    grid-template-columns: 1fr 1fr;
+    column-gap: 40px;
+    width: 680px;
+    margin: -80px auto 0 auto;
+  }
+
 }
