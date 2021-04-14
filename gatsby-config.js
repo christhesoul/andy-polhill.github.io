@@ -5,6 +5,14 @@
  */
 
 module.exports = {
+  siteMetadata: {
+    title: "Andrew Polhill - Engineering Manager",
+    image: "./images/me.jpeg",
+    url: "https://andy-polhill.github.io",
+    twitterUsername: "andy_polhill",
+    description:
+      "Engineer Manager with experience of managing managers and enabling teams",
+  },
   pathPrefix: "/",
   plugins: [
     {
@@ -22,5 +30,6 @@ module.exports = {
       }
     },
     "gatsby-transformer-remark",
+    "gatsby-plugin-react-helmet"
   ]
 };

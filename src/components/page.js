@@ -1,12 +1,14 @@
-import React, { useContext, useState, useEffect } from "react";
+import React, { useContext, useState, useEffect, Fragment } from "react";
 import classnames from "classnames";
 import upperFirst from "lodash.upperfirst";
 import Loadable from "@loadable/component";
-import About from "./about/about";
+import { Helmet } from "react-helmet";
 
+import About from "./about/about";
 import { GlobalStateContext } from "../context/GlobalContextProvider";
 
 import * as styles from "./page.module.css";
+import SEO from "./seo/seo";
 
 const halfHour = 1800000;
 const Hero = Loadable(() => import("./hero/hero"));
@@ -49,9 +51,12 @@ export default function Page() {
   );
 
   return (
-    <div className={ classes }>
-      <Hero timeOfDay={ timeOfDay } />
-      <About />
-    </div>
+    <Fragment>
+      <SEO />
+      <div className={ classes }>
+        <Hero timeOfDay={ timeOfDay } />
+        <About />
+      </div>
+    </Fragment>
   );
 }
