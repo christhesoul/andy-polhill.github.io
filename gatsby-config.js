@@ -23,13 +23,19 @@ module.exports = {
       },
     },
     {
-      resolve: "gatsby-remark-external-links",
+      resolve: "gatsby-transformer-remark",
       options: {
-        target: "_blank",
-        rel: "nofollow"
+        plugins: [
+          {
+            resolve: "gatsby-remark-external-links",
+            options: {
+              target: "_blank",
+              rel: "nofollow"
+            }
+          }
+        ]
       }
     },
-    "gatsby-transformer-remark",
     "gatsby-plugin-react-helmet"
   ]
 };
