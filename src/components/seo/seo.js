@@ -14,6 +14,7 @@ const SEO = ({ title, description, image }) => {
     siteUrl,
     defaultImage,
     twitterUsername,
+    googleSiteVerification,
   } = site.siteMetadata;
 
   const seo = {
@@ -45,6 +46,8 @@ const SEO = ({ title, description, image }) => {
 
       {seo.title && <meta name="twitter:title" content={seo.title} />}
 
+      {googleSiteVerification && <meta name="google-site-verification" content={googleSiteVerification} />}
+
       {seo.description && (
         <meta name="twitter:description" content={seo.description} />
       )}
@@ -60,12 +63,14 @@ SEO.propTypes = {
   title: PropTypes.string,
   description: PropTypes.string,
   image: PropTypes.string,
+  googleSiteVerification: PropTypes.string,
 };
 
 SEO.defaultProps = {
   title: null,
   description: null,
   image: null,
+  googleSiteVerification: null,
 };
 
 const query = graphql`
@@ -76,6 +81,7 @@ const query = graphql`
         defaultDescription: description
         defaultImage: image
         siteUrl: url
+        googleSiteVerification
         twitterUsername
       }
     }
