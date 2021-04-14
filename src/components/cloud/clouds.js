@@ -53,7 +53,7 @@ export default function Clouds({ width, height, timeOfDay }) {
     <svg
       id="clouds"
       viewBox={ `0 0 ${cloudRange} 300` }
-      preserveAspectRatio="xMidYMid meet">
+      preserveAspectRatio="xMidYMid slice">
       <filter id="cloud-drop-shadow">
         <feOffset dx="4" dy="4" result="offsetblur"/>
         <feComponentTransfer>
