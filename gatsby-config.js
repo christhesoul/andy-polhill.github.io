@@ -6,12 +6,12 @@
 
 module.exports = {
   siteMetadata: {
-    title: "Andrew Polhill - Engineering Manager",
+    title: "Andy Polhill - Engineering Manager",
     image: "./images/andy-polhill.png",
     url: "https://andy-polhill.github.io",
     twitterUsername: "andy_polhill",
     description:
-      "Engineer Manager with experience of managing managers and enabling teams",
+      "This is me, I'm an Engineering Manager with experience of managing managers and enabling teams",
   },
   pathPrefix: "/",
   plugins: [
