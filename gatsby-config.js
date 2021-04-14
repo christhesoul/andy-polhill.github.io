@@ -7,7 +7,7 @@
 module.exports = {
   siteMetadata: {
     title: "Andrew Polhill - Engineering Manager",
-    image: "./images/me.jpeg",
+    image: "./images/andy-polhill.png",
     url: "https://andy-polhill.github.io",
     twitterUsername: "andy_polhill",
     description:
