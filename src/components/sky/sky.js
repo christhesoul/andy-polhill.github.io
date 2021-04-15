@@ -1,14 +1,14 @@
 import React from "react";
 import PropTypes from "prop-types";
 
-export default function Sky({ timeOfDay }) {
+export default function Sky({ theme }) {
 
   return (
     <svg id="sky">
       <defs>
         <linearGradient id="sky-gradient" gradientTransform="rotate(90)">
-          <stop offset="5%" stopColor={ `var(--sky-top-${timeOfDay})` } />
-          <stop offset="95%" stopColor={ `var(--sky-bottom-${timeOfDay})` } />
+          <stop offset="5%" stopColor={ `var(--sky-top-${theme})` } />
+          <stop offset="95%" stopColor={ `var(--sky-bottom-${theme})` } />
         </linearGradient>
       </defs>
       <rect
@@ -22,6 +22,6 @@ export default function Sky({ timeOfDay }) {
 Sky.propTypes = {
   width: PropTypes.number,
   height: PropTypes.number,
-  timeOfDay: PropTypes.string
+  theme: PropTypes.oneOf([ 'light', 'dark' ])
 };
 

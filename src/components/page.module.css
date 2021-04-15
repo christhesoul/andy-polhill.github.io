@@ -3,12 +3,5 @@
   height: 100%;
   overflow: hidden;
   flex-direction: column;
-}
-
-.page--day {
-  background-color: var(--sky-bottom-day);
-}
-
-.page--night {
-  background-color: var(--sky-bottom-night);
+  background-color: var(--color-page);
 }

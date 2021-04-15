@@ -6,7 +6,7 @@ import { PropTypes } from "prop-types";
 import { GlobalStateContext } from "../../context/GlobalContextProvider";
 import MoonTexture from "./moonTexture";
 
-export default function Moon({ height, timeOfDay }) {
+export default function Moon({ height }) {
 
   const context = useContext(GlobalStateContext);
   const now = new Date();
@@ -84,11 +84,9 @@ export default function Moon({ height, timeOfDay }) {
       </defs>
 
       <MoonTexture
-        fill="var(--color-moon)"
         x={ x }
         y={ y }
-        r={ radius }
-        timeOfDay={ timeOfDay } />
+        r={ radius } />
     </g>
   );
 }
@@ -101,8 +99,7 @@ Moon.propTypes = {
   height: PropTypes.oneOfType([
     PropTypes.string,
     PropTypes.number,
-  ]),
-  timeOfDay: PropTypes.string
+  ])
 };
 
 

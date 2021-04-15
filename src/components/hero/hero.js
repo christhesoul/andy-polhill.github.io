@@ -8,7 +8,7 @@ import Moon from "../moon/moon";
 
 import * as styles from "./hero.module.css";
 
-export default function Hero({ timeOfDay }) {
+export default function Hero({ theme }) {
 
   const viewBoxWidth = 1200;
   const viewBoxHeight = 300;
@@ -19,21 +19,19 @@ export default function Hero({ timeOfDay }) {
       preserveAspectRatio="none"
       width="100%"
       height={ viewBoxHeight }>
-      <Sky timeOfDay={ timeOfDay } />
-      { timeOfDay === "night" && (
+      <Sky theme={ theme } />
+      { theme === "dark" && (
         <g id="night-sky">
           <Stars
             width={ viewBoxWidth }
             height={ viewBoxHeight } />
-          {/* TODO: daytime moon */}
           <Moon
-            timeOfDay={ timeOfDay }
             width={ viewBoxWidth }
             height={ viewBoxHeight } />
         </g>
       )}
       <Clouds
-        timeOfDay={ timeOfDay }
+        theme={ theme }
         width={ viewBoxWidth }
         height={ viewBoxHeight } />
     </svg>
@@ -41,5 +39,5 @@ export default function Hero({ timeOfDay }) {
 }
 
 Hero.propTypes = {
-  timeOfDay: PropTypes.string.isRequired
+  theme: PropTypes.oneOf([ 'light', 'dark' ]),
 };

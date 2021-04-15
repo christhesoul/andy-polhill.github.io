@@ -4,11 +4,11 @@ import { PropTypes } from "prop-types";
 
 import { GlobalStateContext } from "../../context/GlobalContextProvider";
 
-export default function MoonTexture({ fill, x, y, r }) {
+export default function MoonTexture({ x, y, r }) {
 
   const { moonPhase } = useContext(GlobalStateContext);
 
-  const craters = [
+  const craters = [ 
     { r: r / 5, x: 1, y: 1 },
     { r: r / 6, x: - 12, y: 11 },
     { r: r / 8, x: + 12, y: -15 },
@@ -97,7 +97,7 @@ export default function MoonTexture({ fill, x, y, r }) {
         cy={ y } />
 
       <circle
-        fill={ fill }
+        fill="var(--color-moon)"
         r={ r }
         cx={ x }
         cy={ y }
@@ -121,11 +121,8 @@ export default function MoonTexture({ fill, x, y, r }) {
 }
 
 MoonTexture.propTypes = {
-  glow: PropTypes.bool,
-  x: PropTypes.number,
-  y: PropTypes.number,
-  fill: PropTypes.string,
-  r: PropTypes.number,
-  timeOfDay: PropTypes.string
+  x: PropTypes.number.isRequired,
+  y: PropTypes.number.isRequired,
+  r: PropTypes.number.isRequired
 };
 

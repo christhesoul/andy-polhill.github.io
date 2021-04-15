@@ -5,6 +5,9 @@ npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
 
+# Because occasionally forget I'm using yarn
+package-lock.json
+
 # Runtime data
 pids
 *.pid

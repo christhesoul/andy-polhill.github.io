@@ -9,7 +9,7 @@ const minClouds = 2;
 const maxClouds = 15;
 const cloudRange = 1200;
 
-function generateClouds(width, height, timeOfDay, state) {
+function generateClouds(width, height, theme, state) {
 
   const clouds = scaleLinear()
     .domain([0, 100])
@@ -25,9 +25,9 @@ function generateClouds(width, height, timeOfDay, state) {
     .domain([1, clouds])
     .range([
       getComputedStyle(document.documentElement)
-        .getPropertyValue(`--cloud-foreground-${timeOfDay}`),
+        .getPropertyValue(`--cloud-foreground-${theme}`),
       getComputedStyle(document.documentElement)
-        .getPropertyValue(`--cloud-background-${timeOfDay}`)
+        .getPropertyValue(`--cloud-background-${theme}`)
     ]);
 
   return [...new Array(clouds)].map((_, layer) => ({
@@ -38,15 +38,15 @@ function generateClouds(width, height, timeOfDay, state) {
   }));
 }
 
-export default function Clouds({ width, height, timeOfDay }) {
+export default function Clouds({ width, height, theme }) {
 
   const context = useContext(GlobalStateContext);
 
-  const [clouds, setClouds] = useState([], width, height, timeOfDay, context);
+  const [clouds, setClouds] = useState([], width, height, theme, context);
 
   useEffect(() =>
-    setClouds(generateClouds(width, height, timeOfDay, context)),
-  [width, height, timeOfDay, context]
+    setClouds(generateClouds(width, height, theme, context)),
+  [width, height, theme, context]
   );
 
   return (
@@ -65,7 +65,7 @@ export default function Clouds({ width, height, timeOfDay }) {
         </feMerge>
       </filter>
 
-      <g filter={ timeOfDay === "night" ? "url(#moon-lighting)" : null }>
+      <g filter={ theme === "dark" ? "url(#moon-lighting)" : null }>
         {
           clouds.map((props, i) =>
             <Cloud { ...props } id={ i } key={ i }></Cloud>)
@@ -78,5 +78,5 @@ export default function Clouds({ width, height, timeOfDay }) {
 Clouds.propTypes = {
   width: PropTypes.number.isRequired,
   height: PropTypes.number.isRequired,
-  timeOfDay: PropTypes.string.isRequired
+  theme: PropTypes.oneOf([ 'light', 'dark' ]),
 };
