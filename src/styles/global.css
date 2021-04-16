@@ -9,15 +9,11 @@
   --color-light-blue: #89d9d9;
   --color-white: #fff;
 
-  --cloud-foreground-dark: #01162E;
-  --cloud-background-dark: #002746;
-  --cloud-foreground-light: var(--color-white);
-  --cloud-background-light: #72b6cf;
+  --sky-top: #72b6cf;
+  --sky-bottom: #89d9d9;
 
-  --sky-top-dark: #01162E;
-  --sky-bottom-dark: #01426D;
-  --sky-top-light: #72b6cf;
-  --sky-bottom-light: #89d9d9;
+  --cloud-foreground: var(--color-white);
+  --cloud-background: var(--sky-top);
 
   --color-moon: var(--color-white);
   --color-moon-glow: #487291;
@@ -27,15 +23,21 @@
   --color-heading-emphasis: var(--color-purple);
   --color-body: var(--color-purple);
   --color-link: var(--color-purple-dark);
-  --color-page: var(--sky-bottom-light);
+  --color-page: var(--sky-bottom);
 }
 
 :root .dark {
+  --sky-top: #01162E;
+  --sky-bottom: #01426D;
+
+  --cloud-foreground: #01162E;
+  --cloud-background: #002746;
+
   --color-heading: var(--color-white);
   --color-heading-emphasis: var(--color-light-blue);
   --color-body: var(--color-white);
   --color-link: var(--color-light-blue);
-  --color-page: var(--sky-bottom-dark);
+  --color-page: var(--sky-bottom);
 }
 
 body {

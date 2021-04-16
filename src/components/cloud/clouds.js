@@ -9,7 +9,7 @@ const minClouds = 2;
 const maxClouds = 15;
 const cloudRange = 1200;
 
-function generateClouds(width, height, theme, state) {
+function generateClouds(width, height, state) {
 
   const clouds = scaleLinear()
     .domain([0, 100])
@@ -21,19 +21,9 @@ function generateClouds(width, height, theme, state) {
   const yPosScale = scaleLinear()
     .rangeRound([height / 4, height / 2]);
 
-  const fillScale = scaleLinear()
-    .domain([1, clouds])
-    .range([
-      getComputedStyle(document.documentElement)
-        .getPropertyValue(`--cloud-foreground-${theme}`),
-      getComputedStyle(document.documentElement)
-        .getPropertyValue(`--cloud-background-${theme}`)
-    ]);
-
   return [...new Array(clouds)].map((_, layer) => ({
     x: xPosScale(Math.random()),
     y: yPosScale((Math.random() / 2) + ((clouds - layer) / 10)),
-    fill: fillScale(clouds / 1.5  - layer),
     layer,
   }));
 }
@@ -42,12 +32,21 @@ export default function Clouds({ width, height, theme }) {
 
   const context = useContext(GlobalStateContext);
 
-  const [clouds, setClouds] = useState([], width, height, theme, context);
+  const [clouds, setClouds] = useState([], width, height, context);
 
   useEffect(() =>
-    setClouds(generateClouds(width, height, theme, context)),
-  [width, height, theme, context]
+    setClouds(generateClouds(width, height, context)),
+  [width, height, context]
   );
+  
+  const fillScale = scaleLinear()
+    .domain([1, clouds.length])
+    .range([
+      getComputedStyle(document.body)
+        .getPropertyValue("--cloud-foreground"),
+      getComputedStyle(document.body)
+        .getPropertyValue("--cloud-background")
+    ]);
 
   return (
     <svg
@@ -68,7 +67,14 @@ export default function Clouds({ width, height, theme }) {
       <g filter={ theme === "dark" ? "url(#moon-lighting)" : null }>
         {
           clouds.map((props, i) =>
-            <Cloud { ...props } id={ i } key={ i }></Cloud>)
+            <Cloud
+              x={ props.x }
+              y={ props.y }
+              layer={ props.layer }
+              opacity={ props.opacity }
+              fill={ fillScale(clouds.length / 1.5  - props.layer) }
+              id={ i }
+              key={ i }></Cloud>)
         }
       </g>
     </svg>

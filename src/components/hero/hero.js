@@ -19,7 +19,7 @@ export default function Hero({ theme }) {
       preserveAspectRatio="none"
       width="100%"
       height={ viewBoxHeight }>
-      <Sky theme={ theme } />
+      <Sky />
       { theme === "dark" && (
         <g id="night-sky">
           <Stars
@@ -31,9 +31,9 @@ export default function Hero({ theme }) {
         </g>
       )}
       <Clouds
-        theme={ theme }
         width={ viewBoxWidth }
-        height={ viewBoxHeight } />
+        height={ viewBoxHeight }
+        theme={ theme } />
     </svg>
   );
 }
