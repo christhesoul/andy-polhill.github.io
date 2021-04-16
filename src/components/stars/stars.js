@@ -30,7 +30,7 @@ function generateStars(width, height) {
   }));
 }
 
-export default function Stars({ width, height }) {
+export default function Stars({ width, height, theme }) {
 
   const context = useContext(GlobalStateContext);
 
@@ -42,7 +42,9 @@ export default function Stars({ width, height }) {
   );
 
   return (
-    <g id="stars">
+    <g
+      id="stars"
+      opacity={ theme === 'light' ? 0 : 1 }>
       <defs>
         <filter
           id="star-glow"
@@ -83,4 +85,5 @@ Stars.propTypes = {
     PropTypes.string,
     PropTypes.number,
   ]),
+  theme: PropTypes.oneOf([ 'light', 'dark' ]),
 };

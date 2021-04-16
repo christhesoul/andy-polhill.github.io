@@ -20,16 +20,14 @@ export default function Hero({ theme }) {
       width="100%"
       height={ viewBoxHeight }>
       <Sky />
-      { theme === "dark" && (
-        <g id="night-sky">
-          <Stars
-            width={ viewBoxWidth }
-            height={ viewBoxHeight } />
-          <Moon
-            width={ viewBoxWidth }
-            height={ viewBoxHeight } />
-        </g>
-      )}
+      <Stars
+        width={ viewBoxWidth }
+        height={ viewBoxHeight }
+        theme={ theme } />
+      <Moon
+        width={ viewBoxWidth }
+        height={ viewBoxHeight }
+        theme={ theme } />
       <Clouds
         width={ viewBoxWidth }
         height={ viewBoxHeight }

@@ -6,7 +6,7 @@ import { PropTypes } from "prop-types";
 import { GlobalStateContext } from "../../context/GlobalContextProvider";
 import MoonTexture from "./moonTexture";
 
-export default function Moon({ height }) {
+export default function Moon({ height, theme }) {
 
   const context = useContext(GlobalStateContext);
   const now = new Date();
@@ -32,7 +32,9 @@ export default function Moon({ height }) {
   }, [msToMoonRise, msToMoonSet, time, minY, maxY]);
 
   return (
-    <g id="moon">
+    <g
+      id="moon"
+      opacity={ theme === 'light' ? 0 : 1 }>
       <defs>
         <filter
           id="moon-lighting"
@@ -99,7 +101,8 @@ Moon.propTypes = {
   height: PropTypes.oneOfType([
     PropTypes.string,
     PropTypes.number,
-  ])
+  ]),
+  theme: PropTypes.oneOf([ 'light', 'dark' ]),
 };
 
 
