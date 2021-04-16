@@ -43,6 +43,7 @@
 body {
   margin: 0;
   font-family: "Roboto", 'arial', sans-serif;
+  background-color: var(--color-page);
 }
 
 html,
@@ -50,7 +51,7 @@ body,
 #___gatsby,
 #gatsby-focus-wrapper {
   color: var(--color-body);
-  background-color: var(--color-page);
+  height: 100%;
 }
 
 h1, h2, h3 {
