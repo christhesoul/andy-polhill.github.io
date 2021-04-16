@@ -9,11 +9,11 @@ export default function MoonTexture({ x, y, r }) {
   const { moonPhase } = useContext(GlobalStateContext);
 
   const craters = [ 
-    { r: r / 5, x: 1, y: 1 },
-    { r: r / 6, x: - 12, y: 11 },
-    { r: r / 8, x: + 12, y: -15 },
-    { r: r / 7, x: - 10, y: -19 },
-    { r: r / 6, x: + 18, y: -5 },
+    { r: r / 5, x: 15, y: 35 },
+    { r: r / 6, x: 21, y: 11 },
+    { r: r / 8, x: 32, y: 21 },
+    { r: r / 7, x: 28, y: 42 },
+    { r: r / 6, x: 48, y: 32 },
   ];
 
   return (
@@ -89,33 +89,40 @@ export default function MoonTexture({ x, y, r }) {
         ) }
       </defs>
 
-      <circle
-        fill="var(#sky-gradient)"
-        opacity="0.175"
-        r={ r }
-        cx={ x }
-        cy={ y } />
+      <svg
+        x={ x }
+        y={ y }
+        width={ r * 2 }
+        height={ r * 2 }>
 
-      <circle
-        fill="var(--color-moon)"
-        r={ r }
-        cx={ x }
-        cy={ y }
-        mask="url(#moon-phase)" />
+        <circle
+          fill="var(#sky-gradient)"
+          opacity="0.175"
+          cx={ r }
+          cy={ r }
+          r={ r } />
 
-      {
-        craters.map(({r, x: x1, y: y1}, i) => (
-          <circle
-            key={ i }
-            r={ r }
-            cx={ x + x1 }
-            cy={ y  + y1}
-            mask="url(#moon-phase)"
-            filter="url(#moon-crater-shadow)"
-            fill="var(--color-moon-crater)"
-          />
-        ))
-      }
+        <circle
+          fill="var(--color-moon)"
+          cx={ r }
+          cy={ r }
+          r={ r }
+          mask="url(#moon-phase)" />
+
+        {
+          craters.map(({r, x, y}, i) => (
+            <circle
+              key={ i }
+              r={ r }
+              cx={ x }
+              cy={ y }
+              mask="url(#moon-phase)"
+              filter="url(#moon-crater-shadow)"
+              fill="var(--color-moon-crater)"
+            />
+          ))
+        }
+      </svg>
     </g>
   );
 }

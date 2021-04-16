@@ -19,7 +19,7 @@ export default function Moon({ height, theme }) {
 
   const minY = 0;
   const maxY = height;
-  const x = 200;
+  const x = "20%";
 
   const [y, setY] = useState(minY);
 
