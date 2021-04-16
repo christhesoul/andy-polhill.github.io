@@ -51,12 +51,19 @@ body,
 #gatsby-focus-wrapper {
   height: 100%;
   color: var(--color-body);
+  background-color: var(--color-page);
 }
 
 h1, h2, h3 {
   font-family: 'Libre Baskerville', serif;
+  transition: color 1s;
+}
+
+p, em {
+  transition: color 1s;
 }
 
 a {
   color: var(--color-link);
+  transition: color 1s;
 }
