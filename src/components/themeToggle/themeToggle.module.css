@@ -1,6 +1,7 @@
 .theme-controls {
   text-align: right;
   margin-bottom: 5px;
+  font-size: 0.875em;
 }
 
 .theme-controls__link {
