@@ -1,0 +1,21 @@
+version: 2
+
+updates:
+  - package-ecosystem: "npm"
+    directory: "/"
+    schedule:
+      interval: 'weekly'
+      time: '00:00'
+      timezone: 'Europe/London'
+    commit-message:
+      prefix: 'npm'
+      include: 'scope'
+    versioning-strategy: increase
+
+  - package-ecosystem: 'github-actions'
+    directory: '/'
+    schedule:
+      interval: 'weekly'
+      time: '00:00'
+      timezone: 'Europe/London'
+    rebase-strategy: 'disabled'
