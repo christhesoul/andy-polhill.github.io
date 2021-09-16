@@ -1,5 +1,5 @@
-import React, { useContext, useState, useEffect, Fragment } from "react";
-import Loadable from "@loadable/component";
+import React, { Fragment } from "react";
+import Hero from "./hero/hero";
 import Theme from "gatsby-plugin-dark-mode/ThemeToggler";
 
 import About from "./about/about";
@@ -7,8 +7,6 @@ import ThemeToggle from "./themeToggle/themeToggle";
 import SEO from "./seo/seo";
 
 import * as styles from "./page.module.css";
-
-const Hero = Loadable(() => import("./hero/hero"));
 
 export default function Page() {
 
