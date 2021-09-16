@@ -1,12 +1,10 @@
 import React from "react";
 import PropTypes from "prop-types";
-
-import Clouds from "../cloud/clouds";
-import Sky from "../sky/sky";
-import Stars from "../stars/stars";
-import Moon from "../moon/moon";
+import Loadable from "@loadable/component";
 
 import * as styles from "./hero.module.css";
+
+const HeroContent = Loadable(() => import("./heroContent"));
 
 export default function Hero({ theme }) {
 
@@ -19,19 +17,11 @@ export default function Hero({ theme }) {
       preserveAspectRatio="none"
       width="100%"
       height={ viewBoxHeight }>
-      <Sky />
-      <Stars
-        width={ viewBoxWidth }
-        height={ viewBoxHeight }
-        theme={ theme } />
-      <Moon
-        width={ viewBoxWidth }
-        height={ viewBoxHeight }
-        theme={ theme } />
-      <Clouds
-        width={ viewBoxWidth }
-        height={ viewBoxHeight }
-        theme={ theme } />
+        <HeroContent 
+          width={ viewBoxWidth }
+          height={ viewBoxHeight }
+          theme={ theme }
+        />
     </svg>
   );
 }
