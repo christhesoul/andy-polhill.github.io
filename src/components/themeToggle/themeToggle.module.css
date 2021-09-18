@@ -1,6 +1,10 @@
 .theme-controls {
   text-align: right;
   margin-bottom: 5px;
+  margin-right: 5px;
+  position: absolute;
+  bottom: 0;
+  right: 0;
   font-size: 0.875em;
 }
 
