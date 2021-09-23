@@ -1,0 +1,20 @@
+name: 'Spotify'
+description: 'Retrieve the latest Spotify tracks'
+inputs:
+  time_range:
+    description: "Over what time frame the affinities are computed"
+    #long_term medium_term short_term
+    required: true
+  api-key:
+    description: "API Key"
+    required: true
+outputs:
+  track:
+    description: 'Name of the track.'
+  artist:
+    description: 'Name of the Artist.'
+  href:
+    description: 'Spotfy uri to the track.'
+runs:
+  using: 'node12'
+  main: 'index.js'
