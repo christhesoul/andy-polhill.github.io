@@ -1,12 +1,15 @@
-name: 'Spotify'
+name: 'Top Tracks'
 description: 'Retrieve the latest Spotify tracks'
 inputs:
   time_range:
     description: "Over what time frame the affinities are computed"
     #long_term medium_term short_term
     required: true
-  api-key:
-    description: "API Key"
+  client_id:
+    description: "Spotify ID"
+    required: true
+  client_secret:
+    description: "Spotify Secret"
     required: true
 outputs:
   track:

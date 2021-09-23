@@ -1,11 +1,14 @@
 const core = require('@actions/core');
 const axios = require('axios');
+const querystring = require('querystring');
 
 const getTopTracks = async () => {
   const time_range = core.getInput('time_range');
-  const client_id = core.getInput('client-id');
-  const client_secret = core.getInput('client-secret');
+  const client_id = core.getInput('client_id');
+  const client_secret = core.getInput('client_secret');
 
+  console.log('client_id: ', client_id);
+  console.log('client_secret: ', client_secret);
   console.log('get tracks');
 
   const encodedToken = Buffer
@@ -14,31 +17,37 @@ const getTopTracks = async () => {
 
   console.log('encodedToken: ', encodedToken.length);
 
-  const { data } = await axios.post("https://accounts.spotify.com/api/token", 
-    stringify({ grant_type: "client_credentials" }), { 
-      headers: {
-        "content-type": "application/x-www-form-urlencoded",
-        Authorization: `Basic ${encodedToken}`
+  try {
+    const { data } = await axios.post("https://accounts.spotify.com/api/token", 
+      querystring.stringify({ grant_type: "client_credentials" }), { 
+        headers: {
+          "content-type": "application/x-www-form-urlencoded",
+          Authorization: `Basic ${encodedToken}`
+        },
+      });
+
+    console.log('access_token: ', data.access_token);
+
+    axios.defaults.headers.common["Authorization"] = `Bearer ${data.access_token}`;
+    axios.defaults.headers.common["Accept"] = "application/json";
+    axios.defaults.headers.common["Content-Type"] = "application/json";
+
+
+
+    const { data: track_data } = await axios.get(`https://api.spotify.com/v1/me/`, { // top/tracks
+      params: {
+        time_range,
+        limit: 1
       }
-    });
+    })
 
-  console.log('access_token: ', data.access_token.length);
+    console.log('output')
+    console.log(track_data);
+    return data;
+  } catch (e) {
+    console.log(e);
+  }
 
-  axios.defaults.headers.common["Authorization"] = `Bearer ${data.access_token}`;
-  axios.defaults.headers.common["Accept"] = "application/json";
-  axios.defaults.headers.common["Content-Type"] = "application/json";
-
-  const { data } = await axios.get(`https://api.spotify.com/v1/me/top/tracks`, {
-    params: {
-      time_range,
-      limit: 1
-    }
-  })
-
-  console.log('output')
-  console.log(data);
-
-  return data;
 }
 
 try {

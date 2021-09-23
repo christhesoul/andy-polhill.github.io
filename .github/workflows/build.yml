@@ -4,11 +4,11 @@ on:
   schedule:
     - cron: '0 0 * * *'
   push:
-    branches: [ main ]
+    branches: [ main, status-page ]
 
 
 jobs:
-  build:
+  fetch-weather:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
@@ -92,6 +92,63 @@ jobs:
         with:
           key: 'moonSet'
           value: ${{ steps.forecast.outputs.moonSet }}
+
+      - name: build
+        run: yarn build -- --prefix-paths
+
+      - name: deploy
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./public
+
+  fetch-top-tracks:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+
+      - name: Setup
+        uses: actions/setup-node@v2
+        with:
+          node-version: '14'
+
+      - name: Cache dependencies
+        uses: actions/cache@v2
+        with:
+          path: ~/.npm
+          key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
+          restore-keys: |
+            ${{ runner.os }}-node-
+
+      - name: install dependencies
+        run: yarn install
+
+      - name: get top tracks
+        id: top-tracks
+        uses: ./.github/actions/top-tracks
+        with:
+          time_range: 'short_term'
+          client_id: ${{ secrets.SPOTIFY_ID }}
+          client_secret: ${{ secrets.SPOTIFY_SECRET }}
+
+  build:
+    needs: [fetch-weather, fetch-top-tracks]
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+
+      - name: Cache dependencies
+        uses: actions/cache@v2
+        with:
+          path: ~/.npm
+          key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
+          restore-keys: |
+            ${{ runner.os }}-node-
+
+      - name: install dependencies
+        run: yarn install
 
       - name: build
         run: yarn build -- --prefix-paths
