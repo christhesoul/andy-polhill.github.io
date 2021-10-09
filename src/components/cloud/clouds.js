@@ -3,6 +3,8 @@ import { scaleLinear } from "d3-scale";
 import PropTypes from "prop-types";
 import { GlobalStateContext } from "../../context/GlobalContextProvider";
 
+import * as styles from "./clouds.module.css";
+
 import Cloud from "./cloud";
 
 const minClouds = 2;
@@ -51,7 +53,8 @@ export default function Clouds({ width, height, theme }) {
   return (
     <svg
       id="clouds"
-      viewBox={ `0 0 ${cloudRange} 300` }
+      className={ styles.clouds }
+      viewBox={ `0 0 ${cloudRange} ${height}` }
       preserveAspectRatio="xMidYMid slice">
       <filter id="cloud-drop-shadow">
         <feOffset dx="4" dy="4" result="offsetblur"/>

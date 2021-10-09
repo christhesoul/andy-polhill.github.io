@@ -8,3 +8,60 @@
   src: url("../fonts/Montserrat/Montserrat-Regular.ttf");
 }
 
+@font-face {
+  font-family: "Montserrat";
+  src: url("../fonts/Montserrat/Montserrat-Medium.ttf");
+  font-weight:400;
+}
+
+:root {
+  /* set base values */
+  --text-base-size: 1em;
+  --text-scale-ratio: 1.1;
+
+  /* type scale */
+  --text-xs: calc(1em / (var(--text-scale-ratio) * var(--text-scale-ratio)));
+  --text-sm: calc(1em / var(--text-scale-ratio));
+  --text-md: calc(1em * var(--text-scale-ratio));
+  --text-lg: calc(1em * var(--text-scale-ratio) * var(--text-scale-ratio));
+  --text-xl: calc(1em * var(--text-scale-ratio) * var(--text-scale-ratio) * var(--text-scale-ratio));
+  --text-xxl: calc(1em * var(--text-scale-ratio) * var(--text-scale-ratio) * var(--text-scale-ratio) * var(--text-scale-ratio));
+  --text-xxxl: calc(1em * var(--text-scale-ratio) * var(--text-scale-ratio) * var(--text-scale-ratio) * var(--text-scale-ratio) * var(--text-scale-ratio));
+}
+
+@media (min-width: 768px) {
+  :root {
+    /* you can manage typography editing only these 2 variables */
+    --text-base-size: 1em;
+    --text-scale-ratio: 1.1;
+  }
+}
+
+
+h1, h2, h3 {
+  font-family: 'Libre Baskerville', serif;
+  transition: color 1s;
+}
+
+p, em {
+  transition: color 1s;
+}
+
+a {
+  color: var(--color-link);
+  transition: color 1s;
+}
+
+h1 {
+  color: var(--color-white);
+}
+
+h1 em {
+  font-style: normal;
+  color: var(--color-heading-emphasis);
+}
+
+
+h2 {
+  color: var(--color-purple-dark);
+}

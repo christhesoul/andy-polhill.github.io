@@ -1,11 +1,15 @@
 .theme-controls {
   text-align: right;
-  margin-bottom: 5px;
-  margin-right: 5px;
-  position: absolute;
-  bottom: 0;
-  right: 0;
-  font-size: 0.875em;
+  /* margin-bottom: var(--space-xxs);
+  margin-right: var(--space-xs);
+  padding-right: var(--space-xs);
+  position: absolute; */
+  /* bottom: 0;
+  right: 0; */
+  font-size: var(--text-xs);
+  font-family: "Montserrat", 'arial', sans-serif;
+  text-transform: uppercase;
+  font-weight:400;
 }
 
 .theme-controls__link {
@@ -13,22 +17,36 @@
   text-decoration: underline;
 }
 
-.theme-controls__span,
+/* .theme-controls__span,
 .theme-controls__link {
   margin-right: 10px;
-}
+} */
 
 .theme-controls__span {
   opacity: 0.75;
 }
 
-.theme-controls__span:first-child,
+/* .theme-controls__span:first-child,
 .theme-controls__link:first-child {
-  padding-right: 10px;
+  margin-right: var(--space-sm);
   position: relative;
+} */
+
+.theme-controls__link:first-child::after,
+.theme-controls__span:first-child::after {
+  content: ' ';
+  width: var(--space-xxs);
+  height: var(--space-xxs);
+  margin-right: var(--space-sm);
+  margin-left: var(--space-sm);
+  background-color: var(--color-body);
+  border-radius: 50%;
+  display: inline-block;
+  vertical-align: middle;
 }
 
-.theme-controls__span:first-child:after,
+
+/* .theme-controls__span:first-child:after,
 .theme-controls__link:first-child:after {
   content: '';
   height: 70%;
@@ -39,4 +57,4 @@
   top: 15%;
   
   background-color: var(--color-body);
-}
+} */

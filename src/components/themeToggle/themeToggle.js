@@ -1,42 +1,41 @@
 import React, { Fragment } from "react";
-import PropTypes from "prop-types";
 
 import * as styles from "./themeToggle.module.css";
+import ThemeContext from "../../context/ThemeContext";
 
-export default function ThemeToggle({ onToggle, theme }) {
+export default function ThemeToggle() {
 
   return (
-    <div className={ styles.themeControls }>
-      { theme === 'dark' && (
-        <Fragment>
-          <a
-            className={ styles.themeControls__link }
-            onClick={ () => onToggle('light') }>
-              Light
-          </a>
-          <span className={ styles.themeControls__span }>
-            Dark
-          </span>
-        </Fragment>
-      ) }
+    <ThemeContext.Consumer>
+      { ({ theme, setTheme }) => (
+        <div className={ styles.themeControls }>
+          { theme === 'dark' && (
+            <Fragment>
+              <a
+                className={ styles.themeControls__link }
+                onClick={ () => setTheme('light') }>
+                  Light
+              </a>
+              <span className={ styles.themeControls__span }>
+                Dark
+              </span>
+            </Fragment>
+          ) }
 
-      { theme === 'light' && (
-        <Fragment>
-          <span className={ styles.themeControls__span }>
-            Light
-          </span>
-          <a
-            className={ styles.themeControls__link }
-            onClick={ () => onToggle('dark') }>
-              Dark
-          </a>
-        </Fragment>
-      ) }
-    </div>
+          { theme === 'light' && (
+            <Fragment>
+              <span className={ styles.themeControls__span }>
+                Light
+              </span>
+              <a
+                className={ styles.themeControls__link }
+                onClick={ () => setTheme('dark') }>
+                  Dark
+              </a>
+            </Fragment>
+          ) }
+        </div>
+      )}
+    </ThemeContext.Consumer>
   );
-}
-
-ThemeToggle.propTypes = {
-  onToggle: PropTypes.func.isRequired,
-  theme: PropTypes.oneOf([ 'light', 'dark' ]).isRequired
 }

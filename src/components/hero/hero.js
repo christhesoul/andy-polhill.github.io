@@ -1,15 +1,14 @@
 import React from "react";
-import PropTypes from "prop-types";
 import Loadable from "@loadable/component";
 
 import * as styles from "./hero.module.css";
 
 const HeroContent = Loadable(() => import("./heroContent"));
 
-export default function Hero({ theme }) {
+export default function Hero() {
 
   const viewBoxWidth = 1200;
-  const viewBoxHeight = 300;
+  const viewBoxHeight = 200;
 
   return (
     <svg version='1.1'
@@ -20,12 +19,7 @@ export default function Hero({ theme }) {
         <HeroContent 
           width={ viewBoxWidth }
           height={ viewBoxHeight }
-          theme={ theme }
         />
     </svg>
   );
 }
-
-Hero.propTypes = {
-  theme: PropTypes.oneOf([ 'light', 'dark' ]),
-};

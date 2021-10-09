@@ -8,6 +8,7 @@
   --color-purple-dark: #412051;
   --color-light-blue: #89d9d9;
   --color-white: #fff;
+  --color-black: #000;
 
   --sky-top: #72b6cf;
   --sky-bottom: #89d9d9;
@@ -24,6 +25,20 @@
   --color-body: var(--color-purple);
   --color-link: var(--color-purple-dark);
   --color-page: var(--sky-bottom);
+
+  --page-width: 680px;
+
+  
+  /* https://medium.com/codyhouse/create-your-design-system-part-4-spacing-895c9213e2b9 */
+  --space-unit: 16px;
+  --space-xxs:  calc(0.25 * var(--space-unit));
+  --space-xs:   calc(0.5 * var(--space-unit)); 
+  --space-sm:   calc(0.75 * var(--space-unit));
+  --space-md:   calc(1.25 * var(--space-unit));
+  --space-lg:   calc(2 * var(--space-unit));   
+  --space-xl:   calc(3.25 * var(--space-unit));
+  --space-xxl:  calc(5.25 * var(--space-unit));
+
 }
 
 :root .dark {
@@ -43,7 +58,10 @@
 body {
   margin: 0;
   font-family: "Roboto", 'arial', sans-serif;
-  background-color: var(--color-page);
+  background-color: var(--sky-bottom);
+  background: linear-gradient(180deg, var(--sky-top) 5%, var(--sky-bottom) 95%, var(--sky-bottom) 100%);
+  background-repeat: no-repeat;
+  background-attachment: fixed;
 }
 
 html,
@@ -52,18 +70,13 @@ body,
 #gatsby-focus-wrapper {
   color: var(--color-body);
   height: 100%;
+  display: flex;
+  flex-direction: column;
 }
 
-h1, h2, h3 {
-  font-family: 'Libre Baskerville', serif;
-  transition: color 1s;
+article {
+  margin-top: var(--padding-md)
 }
 
-p, em {
-  transition: color 1s;
-}
 
-a {
-  color: var(--color-link);
-  transition: color 1s;
-}
+

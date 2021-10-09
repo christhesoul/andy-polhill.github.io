@@ -1,32 +1,30 @@
 import React, { Fragment } from "react";
-import PropTypes from "prop-types";
 
 import Clouds from "../cloud/clouds";
-import Sky from "../sky/sky";
 import Stars from "../stars/stars";
 import Moon from "../moon/moon";
+import ThemeContext from "../../context/ThemeContext";
 
-export default function HeroContent({ height, theme, width }) {
+export default function HeroContent({ height, width }) {
 
   return (
-    <Fragment>
-      <Sky />
-      <Stars
-        width={ width }
-        height={ height }
-        theme={ theme } />
-      <Moon
-        width={ width }
-        height={ height }
-        theme={ theme } />
-      <Clouds
-        width={ width }
-        height={ height }
-        theme={ theme } />
-    </Fragment>
+    <ThemeContext.Consumer>
+      { ({ theme }) => (
+        <Fragment>
+          <Stars
+            width={ width }
+            height={ height }
+            theme={ theme } />
+          <Moon
+            width={ width }
+            height={ height }
+            theme={ theme } />
+          <Clouds
+            width={ width }
+            height={ height }
+            theme={ theme } />
+        </Fragment>
+      )}
+    </ThemeContext.Consumer>
   );
 }
-
-HeroContent.propTypes = {
-  theme: PropTypes.oneOf([ 'light', 'dark' ]),
-};

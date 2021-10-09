@@ -4,7 +4,12 @@ date: "2021-04-01"
 title: "Andy Polhill - Engineering Manager"
 ---
 
-## 👋 Hello there, I'm Andy Polhill. I'm an _Engineering Manager._
+<!-- # TODO Blog
+- switch not working moon rendering when it should not
+- clouds are cutoff
+- style switch -->
+
+# 👋 Hello there, I'm Andy Polhill. I'm an _Engineering Manager._
 
 I have a background in Software Engineering working at senior levels in different disciplines and industries. Over the years my focus has shifted and I find new satisfaction in leading teams and helping individuals to achieve their goals. 
 

@@ -19,10 +19,10 @@ export default function About() {
         }
       `}
       render={({ markdownRemark }) => (
-        <main
+        <section
           className={ styles.about }
           dangerouslySetInnerHTML={{ __html: markdownRemark.html }}>
-        </main>
+        </section>
       )}
     />
   );

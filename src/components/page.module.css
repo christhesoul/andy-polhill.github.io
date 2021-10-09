@@ -1,5 +1,15 @@
 .page {
-  display: flex;
+  padding: var(--space-md);
+  flex: 1 0 auto;
   flex-direction: column;
-  height: 100%;
+  display: flex;
 }
+
+@media (min-width: 768px) {
+
+  .page {
+    width: var(--page-width);
+    margin: auto;
+  }
+
+} 
