@@ -27,9 +27,12 @@ export default function Blog({ data }) {
   )
 }
 
+
+
+
 export const pageQuery = graphql`
   query MyQuery {
-    blog: allMarkdownRemark {
+    blog: allMarkdownRemark(filter: {fileAbsolutePath: {regex: "/(blog)/"  }}) {
       posts: nodes {
         fields {
           slug
