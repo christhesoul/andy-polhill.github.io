@@ -75,7 +75,8 @@ body,
 }
 
 article {
-  margin-top: var(--padding-md)
+  margin-top: var(--padding-md);
+  flex: 1 0 auto;
 }
 
 

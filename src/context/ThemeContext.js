@@ -17,8 +17,7 @@ class ThemeContextProvider extends React.Component {
     theme: 'light',
   }
 
-  setTheme = () => {
-    let theme = this.state.theme === 'light' ? 'dark' : 'light';
+  setTheme = theme => {
     document.body.className = theme;
     localStorage.setItem("theme", theme)
     this.setState({ theme })
@@ -26,12 +25,12 @@ class ThemeContextProvider extends React.Component {
 
   componentDidMount() {
     // Getting dark mode value from localStorage!
-    const lsTheme = localStorage.getItem("theme");
-    if (lsTheme) {
-      this.setState({ theme: lsTheme })
+    const theme = localStorage.getItem("theme");
+    if (theme) {
+      this.setTheme(theme)
     }
     else if (prefersDarkMode()) {
-      this.setState({ theme: 'dark' })
+      this.setTheme('dark');
     }
   }
 

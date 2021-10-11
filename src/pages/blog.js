@@ -9,13 +9,12 @@ export default function Blog({ data }) {
 
   return (
     <Page>
-      <Header />
       <h1>Blog</h1>
 
       { posts.map(post => (
         <article key={post.id}>
           <h2>
-            <Link to={post.fields.slug}>
+            <Link to={`/blog${post.fields.slug}`}>
               {post.frontmatter.title}
             </Link>
           </h2>
