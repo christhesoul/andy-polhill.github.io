@@ -9,7 +9,7 @@ export default function Blog({ data }) {
 
   return (
     <Page>
-      <h1>Blog</h1>
+      {/* <h1>Blog</h1> */}
 
       { posts.map(post => (
         <article key={post.id}>

@@ -1,15 +1,11 @@
 .theme-controls {
   flex: 0 1 auto;
   text-align: right;
+  margin-top: var(--space-xl);
   font-size: var(--text-xs);
-  font-family: "Montserrat", 'arial', sans-serif;
+  font-family: "Montserrat", "arial", sans-serif;
   text-transform: uppercase;
-  font-weight:400;
-}
-
-.theme-controls__link {
-  cursor: pointer;
-  text-decoration: underline;
+  font-weight: 400;
 }
 
 .theme-controls__span {
@@ -18,7 +14,7 @@
 
 .theme-controls__link:first-child::after,
 .theme-controls__span:first-child::after {
-  content: ' ';
+  content: " ";
   width: var(--space-xxs);
   height: var(--space-xxs);
   margin-right: var(--space-sm);

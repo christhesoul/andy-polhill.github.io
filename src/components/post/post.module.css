@@ -1,5 +1,5 @@
 @media (min-width: 768px) {
-  .blog {
+  .post {
     width: var(--page-width);
   }
 }

@@ -11,7 +11,7 @@
 @font-face {
   font-family: "Montserrat";
   src: url("../fonts/Montserrat/Montserrat-Medium.ttf");
-  font-weight:400;
+  font-weight: 400;
 }
 
 :root {
@@ -24,44 +24,76 @@
   --text-sm: calc(1em / var(--text-scale-ratio));
   --text-md: calc(1em * var(--text-scale-ratio));
   --text-lg: calc(1em * var(--text-scale-ratio) * var(--text-scale-ratio));
-  --text-xl: calc(1em * var(--text-scale-ratio) * var(--text-scale-ratio) * var(--text-scale-ratio));
-  --text-xxl: calc(1em * var(--text-scale-ratio) * var(--text-scale-ratio) * var(--text-scale-ratio) * var(--text-scale-ratio));
-  --text-xxxl: calc(1em * var(--text-scale-ratio) * var(--text-scale-ratio) * var(--text-scale-ratio) * var(--text-scale-ratio) * var(--text-scale-ratio));
+  --text-xl: calc(
+    1em * var(--text-scale-ratio) * var(--text-scale-ratio) *
+      var(--text-scale-ratio)
+  );
+  --text-xxl: calc(
+    1em * var(--text-scale-ratio) * var(--text-scale-ratio) *
+      var(--text-scale-ratio) * var(--text-scale-ratio)
+  );
+  --text-xxxl: calc(
+    1em * var(--text-scale-ratio) * var(--text-scale-ratio) *
+      var(--text-scale-ratio) * var(--text-scale-ratio) *
+      var(--text-scale-ratio)
+  );
 }
 
 @media (min-width: 768px) {
   :root {
     /* you can manage typography editing only these 2 variables */
     --text-base-size: 1em;
-    --text-scale-ratio: 1.1;
+    --text-scale-ratio: 1.125;
   }
 }
 
-
-h1, h2, h3 {
-  font-family: 'Libre Baskerville', serif;
+h1,
+h2,
+h3 {
+  font-family: "Libre Baskerville", serif;
   transition: color 1s;
 }
 
-p, em {
+h1,
+h1 a,
+h2,
+h2 a {
+  color: var(--color-heading);
+}
+
+h1,
+h2 {
+  font-size: 2.5em;
+  margin-bottom: 0;
+}
+
+h1 + small,
+h2 + small {
+  text-transform: uppercase;
+  font-weight: bold;
+  margin-bottom: var(--space-md);
+  font-size: var(--text-xs);
+  display: inline-block;
+}
+
+p,
+em {
   transition: color 1s;
 }
 
 a {
   color: var(--color-link);
   transition: color 1s;
+  text-decoration: none;
+  cursor: pointer;
+}
+a:hover {
+  text-decoration: underline;
 }
 
-h1 {
-  color: var(--color-white);
-}
-
-h1 em {
-  font-style: normal;
-  color: var(--color-heading-emphasis);
-}
-
-
-h2 {
-  color: var(--color-purple-dark);
+p {
+  color: var(--color-body);
+  font-size: var(--text-md);
+  font-family: "Libre Baskeville", Georgia, serif;
+  line-height: 1.75;
 }

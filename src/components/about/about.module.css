@@ -7,13 +7,20 @@
   width: 100%;
 }
 
-h1 {
+.about h1 {
+  color: var(--color-white);
   grid-column-start: 1;
   grid-column-end: 1;
   font-size: 2em;
 }
 
-p {
+.about h1 em {
+  font-style: normal;
+  color: var(--color-heading-emphasis);
+}
+
+
+.about p {
   font-family: "Montserrat", 'arial', sans-serif;
   color: var(--color-body);
   text-align: justify;
@@ -22,7 +29,7 @@ p {
 
 @media (min-width: 768px) {
 
-  h1 {
+  .about h1 {
     grid-column-start: 1;
     grid-column-end: 3;
     font-size: 2.5em;

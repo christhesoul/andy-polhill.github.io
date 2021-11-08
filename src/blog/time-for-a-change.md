@@ -1,10 +1,10 @@
 ---
-title: Journey to a new job
+title: Time for a change?
 author: Andy Polhill
 date: 2021-10-02
 ---
 
-The average tenure in technology is around 3 years. Compared to historical trends that isn't very long, but it's certainly long enough to form habits and build relationships. Changing jobs is potentially less of a big deal than it used to be, but it is still a significant event. 
+The average tenure in technology is around 3 years. Compared to historical trends that isn't very long, but it's certainly long enough to form habits and build relationships. Changing jobs is potentially less of a big deal than it used to be, but it is still a significant event.
 
 Everyone embarks upon a different journey when they look for a new job. I wanted to take the opportunity to talk about my most recent experiences. If you are considering embarking on a journey of your own or maybe you are even on it already, then I hope you might find this useful.
 
@@ -28,7 +28,7 @@ Applying for jobs can get stressful pretty quickly, I still had a day job that I
 
 The recruiter calls are normally the first stage in the screening process. On the whole I found them to be amiable discussions which didn't require much preperation. They helped to check for mutual interest, while also probing around for any show stoppers. I did get rejected in one recruiter call, where they asked a specific question that I couldn't quite understand. In this case it seemed one question was enough to drop you out of the process.
 
-Lets talk about rejection briefly. Like I said it does hurt a bit at first, if you are like me, you picture yourself working in that role long before you've even had your first interview. After all you need to try it out in your mind to see how it fits. So when a rejection comes through the [change curve](https://www.insights.com/resources/coaching-people-through-the-change-curve/) kicks in and you get that feeling of denial. "They're wrong, they've made a mistake", but you do get through it... 
+Lets talk about rejection briefly. Like I said it does hurt a bit at first, if you are like me, you picture yourself working in that role long before you've even had your first interview. After all you need to try it out in your mind to see how it fits. So when a rejection comes through the [change curve](https://www.insights.com/resources/coaching-people-through-the-change-curve/) kicks in and you get that feeling of denial. "They're wrong, they've made a mistake", but you do get through it...
 
 ...who am I kidding they made a mistake. I was perfectly good enough for that job, but they needed to shorten the list somehow and thats how they did it, let's move on.
 

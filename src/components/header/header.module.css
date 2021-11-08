@@ -10,6 +10,10 @@
   padding: 0 var(--space-md);
 }
 
+.nav_active {
+  
+}
+
 .nav ul {
   padding: 0;
 }
@@ -32,10 +36,6 @@
   border-radius: 50%;
   display: inline-block;
   vertical-align: middle;
-}
-
-.nav ul li a {
-  text-decoration: none;
 }
 
 .nav ul li:last-child {
