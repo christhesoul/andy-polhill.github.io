@@ -16,11 +16,19 @@ module.exports = {
   },
   pathPrefix: "/",
   plugins: [
+    "gatsby-plugin-sharp",
     {
       resolve: "gatsby-source-filesystem",
       options: {
         name: "content",
         path: "./README.md",
+      },
+    },
+    {
+      resolve: "gatsby-source-filesystem",
+      options: {
+        name: "images",
+        path: `${__dirname}/src/images/`,
       },
     },
     {
@@ -34,6 +42,13 @@ module.exports = {
       resolve: "gatsby-transformer-remark",
       options: {
         plugins: [
+          {
+            resolve: "gatsby-remark-images",
+            options: {
+              maxWidth: 840,
+              wrapperStyle: 'margin:0;',
+            },
+          },
           {
             resolve: "gatsby-remark-external-links",
             options: {

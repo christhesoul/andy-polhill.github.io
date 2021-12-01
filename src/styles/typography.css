@@ -97,3 +97,8 @@ p {
   font-family: "Libre Baskeville", Georgia, serif;
   line-height: 1.75;
 }
+
+.image-credit {
+  font-size: var(--text-xs);
+  font-family: "Montserrat", "arial", sans-serif;
+}

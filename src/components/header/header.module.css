@@ -11,7 +11,7 @@
 }
 
 .nav_active {
-  
+  /* TODO */
 }
 
 .nav ul {
@@ -22,12 +22,12 @@
   display: inline-block;
   list-style-type: none;
   text-transform: uppercase;
-  font-family: "Montserrat", 'arial', sans-serif;
-  font-weight:400;
+  font-family: "Montserrat", "arial", sans-serif;
+  font-weight: 400;
 }
 
 .nav ul li:not(:last-child)::after {
-  content: ' ';
+  content: " ";
   width: var(--space-xxs);
   height: var(--space-xxs);
   margin-right: var(--space-lg);
@@ -47,5 +47,4 @@
     padding: 0;
     width: var(--page-width);
   }
-
 }
