@@ -18,6 +18,12 @@ module.exports = {
   plugins: [
     "gatsby-plugin-sharp",
     {
+      resolve: "gatsby-plugin-plausible",
+      options: {
+        domain: "andy-polhill.github.io"
+      },
+    },
+    {
       resolve: "gatsby-source-filesystem",
       options: {
         name: "content",
