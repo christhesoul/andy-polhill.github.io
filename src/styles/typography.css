@@ -20,7 +20,9 @@
   --text-scale-ratio: 1.1;
 
   /* type scale */
-  --text-xs: calc(1em / (var(--text-scale-ratio) * var(--text-scale-ratio)));
+  /* FIXME: The css minifier strips out the brackets - raise this*/
+  /* --text-xs: calc(1em / (var(--text-scale-ratio) * var(--text-scale-ratio))); */
+  --text-xs: calc(1em / 1.2);
   --text-sm: calc(1em / var(--text-scale-ratio));
   --text-md: calc(1em * var(--text-scale-ratio));
   --text-lg: calc(1em * var(--text-scale-ratio) * var(--text-scale-ratio));

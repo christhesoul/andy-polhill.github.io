@@ -1,6 +1,6 @@
 ---
 title: Time for a change?
-slug: time-for-a-change
+slug: blog/time-for-a-change/
 author: Andy Polhill
 date: 2021-10-02
 ---

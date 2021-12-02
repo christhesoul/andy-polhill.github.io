@@ -1,20 +1,18 @@
-import React from "react"
-import { graphql, Link } from "gatsby"
+import React from "react";
+import PropTypes from "prop-types";
+import { graphql, Link } from "gatsby";
 
-import Page from "../components/page"
-import Header from "../components/header/header";
+import Page from "../components/page";
 
 export default function Blog({ data }) {
-  const { posts } = data.blog
+  const { posts } = data.blog;
 
   return (
     <Page>
-      {/* <h1>Blog</h1> */}
-
       { posts.map(post => (
         <article key={post.id}>
           <h2>
-            <Link to={`/blog${post.fields.slug}`}>
+            <Link to={`/${post.frontmatter.slug}`}>
               {post.frontmatter.title}
             </Link>
           </h2>
@@ -23,23 +21,35 @@ export default function Blog({ data }) {
         </article>
       )) }
     </Page>
-  )
+  );
 }
 
-
+Blog.propTypes = {
+  data: PropTypes.shape({
+    blog: PropTypes.shape({
+      posts: PropTypes.arrayOf(
+        PropTypes.shape({
+          excerpt: PropTypes.string.isRequired,
+          frontmatter: PropTypes.shape({
+            title: PropTypes.string.isRequired,
+            date: PropTypes.string.isRequired
+          }).isRequired
+        })
+      )
+    })
+  })
+};
 
 
 export const pageQuery = graphql`
   query MyQuery {
     blog: allMarkdownRemark(filter: {fileAbsolutePath: {regex: "/(blog)/"  }}) {
       posts: nodes {
-        fields {
-          slug
-        }
         frontmatter {
           date(fromNow: true)
           title
           author
+          slug
         }
         excerpt
         id
