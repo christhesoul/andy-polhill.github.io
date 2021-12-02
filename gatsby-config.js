@@ -10,7 +10,7 @@ module.exports = {
     image: "./images/andy-polhill.png",
     url: "https://andy-polhill.github.io",
     twitterUsername: "andy_polhill",
-    googleSiteVerification: "Gx-SCWHBzUEUmE9lGm9njutzEHhiiDgLvzP0F7BgLIA",
+    googleSiteVerification: "u9YSAtiwcwFBg-4OXo2VdosOk-8V431tQJSALmhc9Tk",
     description:
       "This is me, I'm an Engineering Manager with experience of managing managers and enabling teams",
   },
