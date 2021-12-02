@@ -9,6 +9,7 @@ module.exports = {
     title: "Andy Polhill - Engineering Manager",
     image: "./images/andy-polhill.png",
     url: "https://andy-polhill.github.io",
+    siteUrl: "https://andy-polhill.github.io", // for sitemap plugin
     twitterUsername: "andy_polhill",
     googleSiteVerification: "u9YSAtiwcwFBg-4OXo2VdosOk-8V431tQJSALmhc9Tk",
     description:
@@ -17,6 +18,12 @@ module.exports = {
   pathPrefix: "/",
   plugins: [
     "gatsby-plugin-sharp",
+    {
+      resolve: "gatsby-plugin-sitemap",
+      options: {
+        excludes: ["/about", "/null", "/dev-404-page/"]
+      },
+    },
     {
       resolve: "gatsby-plugin-plausible",
       options: {
