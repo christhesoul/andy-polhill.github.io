@@ -1,0 +1,5 @@
+{
+    "componentChunkName": "component---src-pages-blog-js",
+    "path": "/blog/",
+    "result": {"data":{"blog":{"posts":[{"frontmatter":{"date":"2 months ago","title":"Time for a change?","author":"Andy Polhill","slug":"blog/time-for-a-change/"},"excerpt":"The average tenure in technology is widely estimated to be less than 3 years, compared to historical trends that isn't very long. We often…","id":"dc540b86-58b4-5c0d-8171-4338bf1b79ad"}]}},"pageContext":{}},
+    "staticQueryHashes": ["2147664024"]}
