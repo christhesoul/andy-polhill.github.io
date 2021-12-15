@@ -26,6 +26,11 @@ A growing organisation will be expanding teams rapidly, a bit like bacteria on a
 The business performance and future outlook of your current organisation will have a direct impact on your career path. I worked for a couple of early phase start ups which didn't end well. At the time I had my concerns about what we were building, but I put most of my focus on the technology. If I had more business acumen I could have read the warning signs earlier on. Engage with the performance of your employer, it may seem detached from your day to day job but it will play a part in your success. It will also help you in the future as you start to influence strategy.
 
 ## You play the other important role
+
+![Someone pointing at you?](../images/you.jpg)
+Photo by <a href="https://unsplash.com/@fideletty?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Etty Fidele</a> on <a href="https://unsplash.com/s/photos/you?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Unsplash</a>
+  
+
 There are a few factors which lie out of your control, fortunately though there are plenty of factors which you do have control over. Remember to focus on your own development, a key part of landing that first role is to position yourself. If an opportunity arises, through expansion, resignation or any other factor, make sure you are there and a that you are an obvious choice.
 
 ### Are you a Senior Engineer?
