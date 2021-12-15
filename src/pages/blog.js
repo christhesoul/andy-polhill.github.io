@@ -11,11 +11,11 @@ export default function Blog({ data }) {
     <Page>
       { posts.map(post => (
         <article key={post.id}>
-          <h2>
+          <h1>
             <Link to={`/${post.frontmatter.slug}`}>
               {post.frontmatter.title}
             </Link>
-          </h2>
+          </h1>
           <small>{post.frontmatter.author}, {post.frontmatter.date}</small>
           <p>{post.excerpt}</p>
         </article>
