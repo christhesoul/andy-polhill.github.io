@@ -128,7 +128,7 @@ export default function MoonTexture({ x, y, r }) {
 }
 
 MoonTexture.propTypes = {
-  x: PropTypes.string.isRequired,
+  x: PropTypes.number.isRequired,
   y: PropTypes.number.isRequired,
   r: PropTypes.number.isRequired
 };
