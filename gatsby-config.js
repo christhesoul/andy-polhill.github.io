@@ -27,7 +27,7 @@ module.exports = {
     {
       resolve: "gatsby-plugin-plausible",
       options: {
-        domain: "andy-polhill.github.io"
+        domain: "andy-polhill.com"
       },
     },
     {
