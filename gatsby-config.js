@@ -18,6 +18,7 @@ module.exports = {
   pathPrefix: "/",
   plugins: [
     "gatsby-plugin-sharp",
+    "gatsby-plugin-cname",
     {
       resolve: "gatsby-plugin-sitemap",
       options: {
