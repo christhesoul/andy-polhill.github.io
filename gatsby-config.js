@@ -8,8 +8,8 @@ module.exports = {
   siteMetadata: {
     title: "Andy Polhill - Engineering Manager",
     image: "./images/andy-polhill.png",
-    url: "https://andy-polhill.github.io",
-    siteUrl: "https://andy-polhill.github.io", // for sitemap plugin
+    url: "https://andypolhill.com",
+    siteUrl: "https://andypolhill.com", // for sitemap plugin
     twitterUsername: "andy_polhill",
     googleSiteVerification: "u9YSAtiwcwFBg-4OXo2VdosOk-8V431tQJSALmhc9Tk",
     description:
