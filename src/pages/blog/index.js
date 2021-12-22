@@ -2,7 +2,7 @@ import React from "react";
 import PropTypes from "prop-types";
 import { graphql, Link } from "gatsby";
 
-import Page from "../components/page";
+import Page from "../../components/page";
 
 export default function Blog({ data }) {
   const { posts } = data.blog;
@@ -43,7 +43,7 @@ Blog.propTypes = {
 
 export const pageQuery = graphql`
   query MyQuery {
-    blog: allMarkdownRemark(filter: {fileAbsolutePath: {regex: "/(blog)/"  }}) {
+    blog: allMdx(filter: {fileAbsolutePath: {regex: "/(blog)/"  }}) {
       posts: nodes {
         frontmatter {
           date(fromNow: true)
@@ -57,3 +57,42 @@ export const pageQuery = graphql`
     }
   }
 `
+
+// import * as React from 'react'
+// import { Link, graphql } from 'gatsby'
+
+// const BlogPage = ({ data }) => {
+//   return (
+//     <div>
+//       {/* {
+//         data.allMdx.nodes.map(node => (
+//           <article key={node.id}>
+//             <h2>
+//               <Link to={`/blog/${node.slug}`}>
+//                 {node.frontmatter.title}
+//               </Link>
+//             </h2>
+//             <p>Posted: {node.frontmatter.date}</p>
+//           </article>
+//         ))
+//       } */}
+//     </div>
+//   )
+// }
+
+// export const query = graphql`
+//   query {
+//     allMdx(sort: {fields: frontmatter___date, order: DESC}) {
+//       nodes {
+//         frontmatter {
+//           date(formatString: "MMMM D, YYYY")
+//           title
+//         }
+//         id
+//         slug
+//       }
+//     }
+//   }
+// `
+
+// export default BlogPage

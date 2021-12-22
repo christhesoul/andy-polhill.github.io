@@ -1,21 +1,8 @@
 ---
-slug: "about"
+slug: ""
 date: "2021-04-01"
 title: "Andy Polhill - Engineering Manager"
 ---
-
-<!-- # TODO Blog
-BEFORE
-- active link state
-- font is bad on body
-- contrast checker
-- blog text (apology)
-
-AFTER
-- uneccesary animation
-- active state on active link
-- social image
--->
 
 # 👋 Hello there, I'm Andy Polhill. I'm an _Engineering Manager._
 

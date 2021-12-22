@@ -6,8 +6,8 @@ import About from "../components/about/about";
 export default function Home() {
   return (
      <Page>
-      <Hero />
-      <About />
-    </Page>
+       <Hero />
+       <About />
+     </Page>
   );
 }

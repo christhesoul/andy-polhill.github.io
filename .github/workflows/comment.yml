@@ -1,0 +1,37 @@
+name: post-comment
+
+on:
+  workflow_dispatch:
+    inputs:
+      author:
+        description: 'Author of the commentor'
+        required: true
+      body:
+        description: 'Body of the comment'
+        required: true
+      url:
+        description: 'Url of the commenter'
+      discussionId:
+        description: 'ID of the discussion'
+        required: true
+
+jobs:
+  post-comment:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: octokit/graphql-action@v2.x
+        id: post_discussion_comment
+        with:
+          query: |
+            mutation addDiscussionComment($discussion: ID!, $body: String!) {
+              addDiscussionComment(input: {discussionId: $discussion, body: $body}) {
+                comment {
+                  id
+                }
+              }
+            }
+          discussion: "'${{github.event.inputs.discussionId}}'"
+          body: '"---\nauthor: ${{github.event.inputs.author}}\nurl: ${{github.event.inputs.url}}\n---\n${{github.event.inputs.body}}"'
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      - run: "echo 'new comment: ${{ steps.post_discussion_comment.outputs.data }}'"

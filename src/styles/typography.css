@@ -19,29 +19,13 @@
   --text-base-size: 1em;
   --text-scale-ratio: 1.2;
 
-  /* type scale */
-  /* FIXME: The css minifier strips out the brackets - raise this*/
-  /* --text-xs: calc(1em / (var(--text-scale-ratio) * var(--text-scale-ratio))); */
   --text-xs: calc(1em / 1.2);
   --text-sm: calc(1em / var(--text-scale-ratio));
   --text-md: calc(1em * var(--text-scale-ratio));
   --text-lg: calc(1em * var(--text-scale-ratio) * var(--text-scale-ratio));
   --text-xl: 1.6em;
-  /* calc(
-    1em * var(--text-scale-ratio) * var(--text-scale-ratio) *
-      var(--text-scale-ratio)
-  ); */
   --text-xxl: 2em;
-  /* calc(
-    1em * var(--text-scale-ratio) * var(--text-scale-ratio) *
-      var(--text-scale-ratio) * var(--text-scale-ratio)
-  ); */
   --text-xxxl: 2.4em;
-  /* calc(
-    1em * var(--text-scale-ratio) * var(--text-scale-ratio) *
-      var(--text-scale-ratio) * var(--text-scale-ratio) *
-      var(--text-scale-ratio)
-  ); */
 }
 
 @media (min-width: 768px) {
@@ -54,7 +38,8 @@
 
 h1,
 h2,
-h3 {
+h3,
+h4 {
   font-family: "Libre Baskerville", serif;
   transition: color 1s;
 }
@@ -107,11 +92,30 @@ a:hover {
   text-decoration: underline;
 }
 
-p {
+button {
+  padding: var(--space-xs);
+  border-radius: var(--space-xxs)
+}
+
+p,
+textarea,
+input,
+button {
   color: var(--color-body);
   font-size: var(--text-md);
   font-family: "Libre Baskeville", Georgia, serif;
   line-height: 1.75;
+  outline: none;
+}
+
+textarea,
+input,
+button {
+  color: var(--color-purple);
+}
+
+li p {
+  margin-top: var(--space-xxs);
 }
 
 .image-credit {

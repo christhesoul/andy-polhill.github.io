@@ -1,0 +1,11 @@
+:root {
+  --color-alert: var(--color-red);
+  --color-alert-border: var(--color-red-dark);
+}
+
+.alert {
+  color: var(--color-purple);
+  background-color: var(--color-alert);
+  border: solid 1px var(--color-alert-border);
+  padding: var(--space-sm);
+}
