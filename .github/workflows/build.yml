@@ -31,6 +31,9 @@ jobs:
 
       - name: build
         run: yarn build -- --prefix-paths
+        env:
+          DISCUSSION_TOKEN: ${{ secrets.DISCUSSION_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
       - name: deploy
         uses: peaceiris/actions-gh-pages@v3

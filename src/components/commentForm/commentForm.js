@@ -39,7 +39,6 @@ export default function CommentForm({ discussionId, addComment }) {
       setAuthor("");
       setUrl("");
       addComment({body, author, url, pending: true});
-      return response.json(); 
     } catch(error) {
       setError(error);
     }

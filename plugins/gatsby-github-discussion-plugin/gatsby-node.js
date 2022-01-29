@@ -40,15 +40,19 @@ exports.createSchemaCustomization = ({ actions }) => {
     }`);
 };
 
-exports.sourceNodes = async ({ actions, createNodeId, createContentDigest }) => {
+exports.sourceNodes = async ({ actions, createNodeId, createContentDigest }, { discussionToken }) => {
   const { createNode } = actions;
   const categoryId = "DIC_kwDOEZ2jC84CAyEg";
+  const [repositoryOwner, repositoryName] = process.env.GITHUB_REPOSITORY.split('/')
 
-  console.log(`🖊 comments: fetching data`);
+  console.log(`🖊 owner ${repositoryOwner}`);
+  console.log(`🖊 repo ${repositoryName}`);
+  console.log(`🖊 GITHUB_TOKEN ${process.env.GITHUB_TOKEN}`);
+  console.log(`🖊 token ${process.env.GITHUB_TOKEN && process.env.GITHUB_TOKEN.length}`);
 
   try {
     const { repository } = await graphql(`{
-      repository(owner: "${process.env.OWNER}", name: "${process.env.REPO}") {
+      repository(owner: "${repositoryOwner}", name: "${repositoryName}") {
         discussions(first: 100, categoryId: "${categoryId}") {
           edges {
             node {
