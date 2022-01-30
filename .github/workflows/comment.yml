@@ -16,6 +16,15 @@ on:
         required: true
 
 jobs:
+  slack-notification:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: rtCamp/action-slack-notify@v2
+        id: post_slack_notification
+        env:
+          SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK }}
+          SLACK_MESSAGE: '"Body: ${{github.event.inputs.body}}\nAuthor: ${{github.event.inputs.author}}\URL: ${{github.event.inputs.url}}"'
+          SLACK_TITLE: "New Comment"
   post-comment:
     runs-on: ubuntu-latest
     steps:
@@ -34,14 +43,4 @@ jobs:
           body: '"---\nauthor: ${{github.event.inputs.author}}\nurl: ${{github.event.inputs.url}}\n---\n${{github.event.inputs.body}}"'
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-      - run: "echo 'new comment: ${{ steps.post_discussion_comment.outputs.data }}'"
-
-  slack-notification:
-    runs-on: ubuntu-latest
-    steps:
-    - uses: rtCamp/action-slack-notify@v2
-      env:
-        SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK }}
-        SLACK_MESSAGE: '"Body: ${{github.event.inputs.body}}\nAuthor: ${{github.event.inputs.author}}\URL: ${{github.event.inputs.url}}"'
-        SLACK_TITLE: "New Comment"
 
