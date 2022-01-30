@@ -35,3 +35,15 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       - run: "echo 'new comment: ${{ steps.post_discussion_comment.outputs.data }}'"
+
+  slack-notification:
+    name: Slack Notification
+    runs-on: ubuntu-latest
+    steps:
+    - name: Slack Notification
+      uses: rtCamp/action-slack-notify@v2
+      env:
+        SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK }}
+        SLACK_MESSAGE: '"Body: ${{github.event.inputs.body}}\nAuthor: ${{github.event.inputs.author}}\URL: ${{github.event.inputs.url}}"'
+        SLACK_TITLE: "New Comment"
+
