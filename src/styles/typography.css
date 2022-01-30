@@ -73,6 +73,7 @@ h2 + small {
   text-transform: uppercase;
   font-weight: bold;
   margin-bottom: var(--space-md);
+  margin-top: var(--space-xs);
   font-size: var(--text-xs);
   display: inline-block;
 }
