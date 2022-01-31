@@ -38,6 +38,7 @@ export default function CommentForm({ discussionId, addComment }) {
       setBody("");
       setAuthor("");
       setUrl("");
+      plausible("comment");
       addComment({body, author, url, pending: true});
     } catch(error) {
       setError(error);
