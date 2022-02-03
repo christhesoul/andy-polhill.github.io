@@ -8,14 +8,16 @@
   --color-purple-dark: #412051;
   /* --color-light-blue: #89d9d9; */
   --color-light-blue: #aeffff;
+  --color-very-light-blue: #f4ffff;
   --color-white: #fff;
   --color-black: #000;
   --color-red: #ffd7d7;
   --color-red-dark: #7e4040;
 
-  --sky-top: #72b6cf;
+  --sky-top: #9bd5eb;
+  /* 72b6cf; */
   /* --sky-bottom: #89d9d9; */
-  --sky-bottom: var(--color-light-blue);
+  --sky-bottom: var(--color-very-light-blue);
 
   --cloud-foreground: var(--color-white);
   --cloud-background: var(--sky-top);
@@ -24,13 +26,13 @@
   --color-moon-glow: #487291;
   --color-moon-crater: #ddd;
 
-  --color-heading: var(--color-white);
+  --color-heading: var(--color-purple);
   --color-heading-emphasis: var(--color-purple);
   --color-body: var(--color-purple);
   --color-link: var(--color-purple-dark);
   --color-page: var(--sky-bottom);
 
-  --page-width: 680px;
+  --page-width: 760px;
 
   /* https://medium.com/codyhouse/create-your-design-system-part-4-spacing-895c9213e2b9 */
   --space-unit: 16px;

@@ -17,12 +17,13 @@
 :root {
   /* set base values */
   --text-base-size: 1em;
-  --text-scale-ratio: 1.2;
+  --text-scale-ratio: 1.125;
 
-  --text-xs: calc(1em / 1.2);
-  --text-sm: calc(1em / var(--text-scale-ratio));
-  --text-md: calc(1em * var(--text-scale-ratio));
-  --text-lg: calc(1em * var(--text-scale-ratio) * var(--text-scale-ratio));
+  --text-xxs: calc(var(--text-base-size) / 1.5);
+  --text-xs: calc(var(--text-base-size) / 1.2);
+  --text-sm: calc(var(--text-base-size) / var(--text-scale-ratio));
+  --text-md: calc(var(--text-base-size));
+  --text-lg: calc(var(--text-base-size) * var(--text-scale-ratio));
   --text-xl: 1.6em;
   --text-xxl: 2em;
   --text-xxxl: 2.4em;
@@ -31,8 +32,8 @@
 @media (min-width: 768px) {
   :root {
     /* you can manage typography editing only these 2 variables */
-    --text-base-size: 1em;
-    --text-scale-ratio: 1.125;
+    --text-base-size: 1.2em;
+    --text-scale-ratio: 1.2;
   }
 }
 
@@ -73,10 +74,14 @@ h1 + small,
 h2 + small {
   text-transform: uppercase;
   font-weight: bold;
-  margin-bottom: var(--space-md);
+  margin-bottom: 0;
   margin-top: var(--space-xs);
   font-size: var(--text-xs);
   display: inline-block;
+}
+
+h2 + small {
+  margin-top: var(--space-xxs);
 }
 
 p,
@@ -122,6 +127,6 @@ li p {
 }
 
 .image-credit {
-  font-size: var(--text-xs);
+  font-size: var(--text-xxs);
   font-family: "Montserrat", "arial", sans-serif;
 }
