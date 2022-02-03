@@ -8,7 +8,6 @@
 }
 
 .about h1 {
-  /* color: var(--color-white); */
   grid-column-start: 1;
   grid-column-end: 1;
   font-size: 2em;

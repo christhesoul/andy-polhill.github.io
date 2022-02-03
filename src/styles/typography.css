@@ -46,7 +46,9 @@ h4 {
 }
 
 h1,
-h1 a {
+h1 a,
+h2,
+h2 a {
   color: var(--color-heading);
   text-decoration: none;
 }

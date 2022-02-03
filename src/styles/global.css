@@ -15,8 +15,6 @@
   --color-red-dark: #7e4040;
 
   --sky-top: #9bd5eb;
-  /* 72b6cf; */
-  /* --sky-bottom: #89d9d9; */
   --sky-bottom: var(--color-very-light-blue);
 
   --cloud-foreground: var(--color-white);
