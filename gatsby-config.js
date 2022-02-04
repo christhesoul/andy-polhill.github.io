@@ -4,9 +4,6 @@
  * See: https://www.gatsbyjs.com/docs/gatsby-config/
  */
 
- console.log(`🔥 DISCUSSION_TOKEN ${process.env.DISCUSSION_TOKEN}`);
- console.log(`🔥 GITHUB_TOKEN ${process.env.GITHUB_TOKEN}`);
-
 module.exports = {
   siteMetadata: {
     title: "Andy Polhill - Engineering Manager",

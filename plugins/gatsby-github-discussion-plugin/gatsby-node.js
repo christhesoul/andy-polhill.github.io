@@ -47,8 +47,6 @@ exports.sourceNodes = async ({ actions, createNodeId, createContentDigest }, { d
 
   console.log(`🖊 owner ${repositoryOwner}`);
   console.log(`🖊 repo ${repositoryName}`);
-  console.log(`🖊 GITHUB_TOKEN ${process.env.GITHUB_TOKEN}`);
-  console.log(`🖊 token ${process.env.GITHUB_TOKEN && process.env.GITHUB_TOKEN.length}`);
 
   try {
     const { repository } = await graphql(`{
