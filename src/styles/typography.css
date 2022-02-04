@@ -20,7 +20,7 @@
   --text-scale-ratio: 1.125;
 
   --text-xxs: calc(var(--text-base-size) / 1.5);
-  --text-xs: calc(var(--text-base-size) / 1.2);
+  --text-xs: calc(var(--text-base-size) / 1.4);
   --text-sm: calc(var(--text-base-size) / var(--text-scale-ratio));
   --text-md: calc(var(--text-base-size));
   --text-lg: calc(var(--text-base-size) * var(--text-scale-ratio));
@@ -83,7 +83,7 @@ h2 + small {
 }
 
 h2 + small {
-  margin-top: var(--space-xxs);
+  margin-top: 0;
 }
 
 p,
