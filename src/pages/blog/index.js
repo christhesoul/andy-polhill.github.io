@@ -3,6 +3,7 @@ import PropTypes from "prop-types";
 import { graphql, Link } from "gatsby";
 
 import Page from "../../components/page";
+import Author from "../../components/author/author";
 
 export default function Blog({ data }) {
   const { posts } = data.blog;
@@ -16,7 +17,10 @@ export default function Blog({ data }) {
               {post.frontmatter.title}
             </Link>
           </h2>
-          <small>{post.frontmatter.author}, {post.frontmatter.date}</small>
+          <Author 
+            author={ post.frontmatter.author }
+            date={ post.frontmatter.date }
+          />
           <p>{post.excerpt}</p>
         </article>
       )) }

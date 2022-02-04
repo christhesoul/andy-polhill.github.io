@@ -2,25 +2,16 @@ import React, { Fragment } from "react";
 import PropTypes from "prop-types";
 
 import * as styles from "./comments.module.css";
+import Author from "../author/author";
 
 const Comment = ({ author, body, date, pending, url }) => {
   return (
     <li role="comment" data-author={ author } className={ styles.comment }>
-      <h4 className={ styles.comment__title }>
-        { pending && <span alt="Pending">⏱</span>}
-        { url && (
-          <Fragment>
-            <a href={ url }>{ author }</a>
-            <small className={ styles.comment__date }>{ date }</small>
-          </Fragment>            
-        )}
-        { !url && (
-          <Fragment>
-            { author }
-            <small className={ styles.comment__date }>{ date }</small>
-          </Fragment>
-        )}
-      </h4>
+      <Author
+        date={ date }
+        author={ author }
+        url={ url }
+        pending={ pending } />
       <p>{ body }</p>
     </li>
   )

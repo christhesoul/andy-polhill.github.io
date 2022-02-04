@@ -1,0 +1,12 @@
+.author {
+  font-family: "Montserrat", "arial", serif;
+  text-transform: uppercase;
+  margin-top: 0;
+  font-size: var(--text-xs);
+}
+
+.author__date:before {
+  content: "-";
+  margin-left: var(--space-xs);
+  margin-right: var(--space-xs);
+}
