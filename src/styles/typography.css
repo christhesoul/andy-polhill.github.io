@@ -98,7 +98,9 @@ a {
   cursor: pointer;
   text-decoration: underline;
 }
+a:active,
 a:hover {
+  color: var(--color-link-hover);
   text-decoration: underline;
 }
 

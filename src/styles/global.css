@@ -28,6 +28,7 @@
   --color-heading-emphasis: var(--color-purple);
   --color-body: var(--color-purple);
   --color-link: var(--color-purple-dark);
+  --color-link-hover: var(--color-purple);
   --color-page: var(--sky-bottom);
 
   --page-width: 760px;
@@ -54,6 +55,7 @@
   --color-heading-emphasis: var(--color-light-blue);
   --color-body: var(--color-white);
   --color-link: var(--color-light-blue);
+  --color-link-hover: var(--color-light);
   --color-page: var(--sky-bottom);
 }
 
