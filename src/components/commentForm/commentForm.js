@@ -1,6 +1,7 @@
 import PropTypes from "prop-types";
 import React, { useState } from "react";
 import Alert from "../alert/alert";
+import Clock from "../clock/clock";
 
 import * as styles from "./commentForm.module.css";
 
@@ -10,10 +11,12 @@ export default function CommentForm({ discussionId, addComment }) {
   const [author, setAuthor] = useState("");
   const [url, setUrl] = useState("");
   const [error, setError] = useState("");
+  const [fetching, setFetching] = useState(false);
 
   const handleSubmit = async (evt) => {
     evt.preventDefault();
     setError(null);
+    setFetching(true);
 
     try {
       const response = await fetch("https://europe-west2-andypolhill.cloudfunctions.net/receive_comment", {
@@ -38,11 +41,12 @@ export default function CommentForm({ discussionId, addComment }) {
       setBody("");
       setAuthor("");
       setUrl("");
-      plausible("comment");
       addComment({body, author, url, pending: true});
+      window.plausible && window.plausible("comment");
     } catch(error) {
       setError(error);
     }
+    setFetching(false);
   }
 
   return (
@@ -85,7 +89,9 @@ export default function CommentForm({ discussionId, addComment }) {
       )}
 
       <button>Post comment</button>
-
+      { fetching && (
+        <Clock />
+      )}
     </form>
   )
 }

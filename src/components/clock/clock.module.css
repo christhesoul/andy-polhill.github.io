@@ -1,0 +1,4 @@
+.clock {
+  margin-left: var(--space-sm);
+  font-size: var(--text-lg);
+}
