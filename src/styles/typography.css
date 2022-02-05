@@ -52,12 +52,10 @@ h2 a {
   color: var(--color-heading);
   text-decoration: none;
 }
-/* h2,
-h2 a */
 
 h1 {
   font-size: var(--text-xxxl);
-  margin-bottom: 0;
+  margin-bottom: var(--space-sm);
 }
 
 h2 {

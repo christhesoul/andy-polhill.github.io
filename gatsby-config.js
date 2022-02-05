@@ -21,6 +21,7 @@ module.exports = {
     "gatsby-plugin-sharp",
     "gatsby-plugin-cname",
     "gatsby-remark-images",
+    "gatsby-plugin-layout",
     // {
     //   resolve: "source-plugin"
     // },
