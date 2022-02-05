@@ -7,6 +7,7 @@ import { MDXRenderer } from "gatsby-plugin-mdx"
 import Page from "../../components/page";
 import Post from "../../components/post/post";
 import Comments from "../../components/comments/comments";
+import Author from "../../components/author/author";
 
 export default function BlogPost({ data }) {
   const { body, comments, frontmatter } = data.mdx;
@@ -15,8 +16,10 @@ export default function BlogPost({ data }) {
   return (
     <Page>
       <Post>
-        <h1>{frontmatter.title}</h1>
-        <small>{frontmatter.date}</small>
+        <h1>{ frontmatter.title }</h1>
+        <Author
+          author={ frontmatter.author }
+          date={ frontmatter.date } />
         <MDXRenderer>
           {body}
         </MDXRenderer>
@@ -39,6 +42,7 @@ BlogPost.propTypes = {
         url: PropTypes.string
       })).isRequired,
       frontmatter: PropTypes.shape({
+        author: PropTypes.string.isRequired,
         title: PropTypes.string.isRequired,
         date: PropTypes.string.isRequired,
         discussionId: PropTypes.string.isRequired,
@@ -59,6 +63,7 @@ export const pageQuery = graphql`
       }
       frontmatter {
         date(formatString: "MMMM DD, YYYY")
+        author
         slug
         title
         discussionId
