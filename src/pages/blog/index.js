@@ -4,6 +4,7 @@ import { graphql, Link } from "gatsby";
 
 import Page from "../../components/page";
 import Author from "../../components/author/author";
+import Rule from "../../components/rule/rule";
 
 export default function Blog({ data }) {
   const { posts } = data.blog;
@@ -21,6 +22,7 @@ export default function Blog({ data }) {
             author={ post.frontmatter.author }
             date={ post.frontmatter.date }
           />
+          <Rule />
           <p>{post.excerpt}</p>
         </article>
       )) }

@@ -9,6 +9,7 @@ import Post from "../../components/post/post";
 import Comments from "../../components/comments/comments";
 import Author from "../../components/author/author";
 import SEO from "../../components/seo/seo";
+import Rule from "../../components/rule/rule";
 
 export default function BlogPost({ data }) {
   const { body, comments, frontmatter } = data.mdx;
@@ -22,6 +23,7 @@ export default function BlogPost({ data }) {
         <Author
           author={ author }
           date={ date } />
+        <Rule />
         <MDXRenderer>
           { body }
         </MDXRenderer>
