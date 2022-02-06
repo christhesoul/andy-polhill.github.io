@@ -8,20 +8,22 @@ import Page from "../../components/page";
 import Post from "../../components/post/post";
 import Comments from "../../components/comments/comments";
 import Author from "../../components/author/author";
+import SEO from "../../components/seo/seo";
 
 export default function BlogPost({ data }) {
   const { body, comments, frontmatter } = data.mdx;
-  const { discussionId } = frontmatter;
+  const { author, date, title, discussionId } = frontmatter;
 
   return (
     <Page>
+      <SEO title={ `${author} - ${title}` } />
       <Post>
-        <h1>{ frontmatter.title }</h1>
+        <h1>{ title }</h1>
         <Author
-          author={ frontmatter.author }
-          date={ frontmatter.date } />
+          author={ author }
+          date={ date } />
         <MDXRenderer>
-          {body}
+          { body }
         </MDXRenderer>
       </Post>
       <Comments
