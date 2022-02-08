@@ -14,11 +14,12 @@
   /* TODO */
 }
 
-.nav ul {
+.nav .nav-list {
   padding: 0;
+  display: flex;
 }
 
-.nav ul li {
+.nav .nav-item {
   display: inline-block;
   list-style-type: none;
   text-transform: uppercase;
@@ -26,7 +27,7 @@
   font-weight: 400;
 }
 
-.nav ul li:not(:last-child)::after {
+.nav-item:not(:last-child)::after {
   content: " ";
   width: var(--space-xxs);
   height: var(--space-xxs);
@@ -38,13 +39,24 @@
   vertical-align: middle;
 }
 
-.nav ul li a {
+.nav-item a {
   text-decoration: none;
 }
 
-.nav ul li:last-child {
+.nav-item:last-child {
   margin-right: 0;
 }
+
+.social-icons svg {
+  fill: red;
+  height: var(--text-md);
+  fill: var(--color-link);
+}
+
+.social-icons:not(:last-child) {
+  margin-right: var(--space-xs);
+}
+
 
 @media (min-width: 768px) {
   .nav {
